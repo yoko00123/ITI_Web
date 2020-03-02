@@ -1,0 +1,89 @@
+<div class='ribbon'><span class='ribbon-button-alignment'><span class='btn btn-ribbon module-ribbon' ng-click='goPrevious()'><i class='fa fa-arrow-circle-left'></i></span></span>
+    <ol class='breadcrumb'>
+        <li>Skins</li>
+    </ol>
+</div>
+<div class='content'>
+    <form novalidate name='mainform'>
+        <div class='button-holder'>
+			<ol class="breadcrumb">
+				<li>
+					<button type='button' class='btn btn-primary' ng-form-save btnid='5003' ng-click="CreateTheme()"><i class='fa fa-save'></i>Save</button>
+				</li>
+				<li>
+					<button type='button' class='btn btn-primary' ng-click="ApplyTheme()" ><i class='fa fa-file'></i>Apply</button>
+				</li>
+				<li>
+					<button type='button' class='btn btn-primary' ng-form-new mid='5018' mtype='3'><i class='fa fa-file-o'></i>New</button>
+				</li>
+			</ol>
+        </div>
+        <div class='clear'></div>
+        <div ng-model='tabs.activeTab' bs-tabs>
+            <div title='General' name='master_5009' ng-form bs-pane>
+                <div class='form_template form-horizontal'>
+                    <fieldset>
+                        <legend>General</legend>
+                        <div class='col-sm-12'>
+                            <div class='form-group'>
+                                <label class='control-label2  col-md-1 bold'>ID</label>
+                                <div class='col-md-11'><span class="control-label">{{Master.ID}}</span></div>
+                            </div>
+                            <div class='form-group'>
+                                <label class='control-label  col-md-1 bold'>Name</label>
+                                <div class='col-md-11'>
+                                    <input type="text" name="Name" placeholder="Name" class="form-control" ng-model="Master.Name" />
+                                </div>
+                            </div>
+                            <div class='form-group'>
+                                <label class='control-label  col-md-1 bold'>Main Color</label>
+                                <div class='col-md-11' >
+                                    <input id="mainColor" type="text" colorpicker style="border-bottom: 12px solid;" ng-style="{'border-bottom-color': Master.mainColor }" name="mainColor" placeholder="Main Color" class="form-control" ng-model="Master.mainColor" />
+                                </div>
+                            </div>
+							 <div class='form-group'>
+                                <label class='control-label  col-md-1 bold'>Font Family</label>
+                                <div class='col-md-11' >
+                                    <input id="FontFamily" type="text" name="FontFamily" placeholder="Font Family" class="form-control" ng-model="Master.FontFamily" />
+                                </div>
+                            </div>
+                            <div class='form-group'>
+                                <label class='control-label  col-md-1 bold'>Border and Hover Color</label>
+                                <div class='col-md-11'>
+                                    <input id="borderBottomColor" type="text" colorpicker style="border-bottom: 12px solid;" ng-style="{'border-bottom-color': Master.borderBottomColor }" name="borderBottomColor" placeholder="Border and Hover Color" class="form-control" ng-model="Master.borderBottomColor" />
+                                </div>
+                            </div>
+                            <div class='form-group'>
+                                <label class='control-label  col-md-1 bold'>Button Font Color</label>
+                                <div class='col-md-11'>
+                                    <input id="buttonFontColor" type="text" colorpicker style="border-bottom: 12px solid;" ng-style="{'border-bottom-color': Master.buttonFontColor }" name="buttonFontColor" placeholder="Button Font Color" class="form-control" ng-model="Master.buttonFontColor" />
+                                </div>
+                            </div>
+                            <div class='form-group'>
+                                <label class='control-label  col-md-1 bold'>Menu Font Color</label>
+                                <div class='col-md-11'>
+                                    <input id="menuFontColor" type="text" colorpicker style="border-bottom: 12px solid;" ng-style="{'border-bottom-color': Master.menuFontColor  }" name="menuFontColor" placeholder="Menu Font Color" class="form-control" ng-model="Master.menuFontColor" />
+                                </div>
+                            </div>
+                        </div>
+                        <legend>Grid / Table Color</legend>
+                        <div class='col-sm-12'>
+                            <div class='form-group'>
+                                <label class='control-label  col-md-1 bold'>Alternating Color</label>
+                                <div class='col-md-11'>
+                                    <input id="tableRowEvenColor" type="text" colorpicker style="border-bottom: 12px solid;" ng-style="{'border-bottom-color': Master.tableRowEvenColor }" name="tableRowEvenColor" placeholder="Alternating Color" class="form-control" ng-model="Master.tableRowEvenColor" />
+                                </div>
+                            </div>
+                            <div class='form-group'>
+                                <label class='control-label  col-md-1 bold'>Grouping Color</label>
+                                <div class='col-md-11'>
+                                    <input id="tableAggregateColor" type="text" colorpicker style="border-bottom: 12px solid;" ng-style="{'border-bottom-color': Master.tableAggregateColor }" name="tableAggregateColor" placeholder="Grouping Color" class="form-control" ng-model="Master.tableAggregateColor" />
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

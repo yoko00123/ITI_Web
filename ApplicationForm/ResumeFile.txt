@@ -1,0 +1,553 @@
+<style>
+    .form-main,
+    .form-border
+    {
+        border: 2px solid rgb(58, 109, 58);
+    }
+    .form-border1
+    {
+        border: 1px solid rgb(58, 109, 58);
+    }
+    .form-border-bottom
+    {
+        border-bottom: 2px solid rgb(58, 109, 58);
+    }
+    .form-border-right
+    {
+        border-right: 2px solid rgb(58, 109, 58);
+    }
+        .form-main .form-header
+        {
+            background-color:#00714b;
+            color:white;
+        }
+</style>
+
+<div class='content'>
+<form novalidate name='mainform'>
+<div class='button-holder'>
+<button  type='button' class='btn btn-primary' ng-click='generateSaveData()' ng-form-save btnid='1025' ><i class='fa fa-save'></i>Save</button>
+</div>
+<div class='clear'></div>
+
+<div class='tabs-top' ng-model='tabs.activeTab' bs-tabs>
+    <div title='Personnel Information' bs-pane>
+        <div class='form_template form-horizontal' >
+        <fieldset>
+		<legend>Personnel Information</legend>
+		<br>
+<div class="form-main" style="position:relative;width:100%;">
+    <div class="form-border-bottom">
+        <div style="position:absolute;"><p style="font-size:30px;padding:5px;"><b>AyalaLand</b></p></div>
+        <div style="position:relative;padding:4px;"><center style="font-family:Arial;font-size:30px;">Personal Information Form</center>
+            <div style="position:absolute;top:0;right:0;margin:7px;">
+                <div style="width:400px;padding:4px;" class='form-group'  >
+                    <label style="width:200px;position:absolute;left:0;" class='control-label  col-md-1' >Date Filled Up</label>
+                    <div class='col-md-11' style="position:relative;width:200px;float:right;">
+                    <div class='input-group'><input type="text" disabled name="ApplicationDate" date-format="MM/dd/yyyy" bs-datepicker data-container="body" date-to-iso class="form-control" ng-model="Master.ApplicationDate"/><span class='input-group-addon'><i class='fa fa-calendar'></i></span></div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="form-header">
+        <div style="font-family:Arial;font-size:24px;">&nbsp;A. PERSONNEL INFORMATION</div>
+    </div>
+    <div style="position:relative;margin-top:5px;">
+        <table width="100%">
+						<tr>
+							<td>
+								<div style="float:left;" class='col-md-6'  ng-class="{ 'has-error' : mainform.LastName.$invalid && mainform.$submitted }"  >
+								<label class='control-label col-md-3' >Last Name <span class='required'>* </span></label>
+								<div class='col-md-9'>
+								<input type="text" name="LastName" required class="form-control" ng-keypress="IgnoreNumbers($event)" ng-model="Master.LastName"/>
+								<span style="color:red;" ng-show="mainform.LastName.$error.pattern">Last name shouldn't contain special characters or numbers.</span>
+								<br>
+								</div>
+								</div>
+								
+								<div style="float:left;" class='col-md-6'  ng-class="{ 'has-error' : mainform.FirstName.$invalid && mainform.$submitted }"  >
+								<label class='control-label col-md-3' >First Name <span class='required'>* </span></label>
+								<div class='col-md-9'>
+								<input type="text" name="FirstName" required class="form-control" ng-keypress="IgnoreNumbers($event)" ng-model="Master.FirstName"/>
+									<span style="color:red;" ng-show="mainform.FirstName.$error.pattern">First name shouldn't contain special characters or numbers.</span>
+								</div>
+								</div>
+							</td>
+							
+						</tr>
+						<tr>
+							<td>
+								<div style="float:left;" class='col-md-4'  ng-class="{ 'has-error' : mainform.MiddleName.$invalid && mainform.$submitted }"  >
+								<label class='control-label col-md-3' >Middle Name <span class='required'>* </span></label>
+								<div class='col-md-9'>
+								<input type="text" name="MiddleName" required class="form-control" ng-keypress="IgnoreNumbers($event)" ng-model="Master.MiddleName"/>
+								<span style="color:red;" ng-show="mainform.MiddleName.$error.pattern">Middle name shouldn't contain special characters or numbers.</span>
+								</div>
+								</div>
+								
+								
+								
+								<div style="float:left;" class='col-md-4'  >
+								<label class='control-label col-md-3' >Suffix</label>
+								<div class='col-md-9'>
+								<input type="text" style="text-transform:uppercase;" name="Suffix" class="form-control" ng-keypress="IgnoreNumbers($event)" ng-model="Master.Suffix"/>
+								<span style="color:red;" ng-show="mainform.Suffix.$error.pattern">Suffix shouldn't contain special characters or numbers.</span>
+								</div>
+								</div>
+								
+								<div style="float:left;" class='col-md-4'  >
+								<label class='control-label col-md-3' >Nick Name</label>
+								<div class='col-md-9'>
+								<input type="text" name="NickName" class="form-control" ng-keypress="IgnoreNumbers($event)" ng-model="Master.NickName"/>
+								<span style="color:red;" ng-show="mainform.NickName.$error.pattern">Nick name shouldn't contain special characters or numbers.</span>
+								</div>
+								</div>
+							</td>
+							<td>&nbsp;</td>
+						</tr>
+						<tr>
+							<td>
+							   &nbsp;
+							</td>
+						</tr>
+					</table>
+    </div>
+    <hr class="form-border1" style="margin:0;padding:0;" />
+    <div class="form-border-bottom" style="position:relative;width:100%;margin:0;">
+        <table width="100%">
+            <tr>
+                <td class="form-border-right" style="width:30%;">
+                    <div style="margin-top:5px;" class='form-group' ng-class="{ 'has-error' : mainform.MobileNo.$invalid && mainform.$submitted }"  >
+                    <label style="width:100px;" class='control-label  col-md-2' >Mobile No.</label>
+                    <div class='col-md-9'>
+                    <input type="text" name="MobileNo" required class="form-control" ng-minlength="11" ng-maxlength="11" ng-pattern="/^[0-9]*$/" ng-model="Master.MobileNo"/>
+                    <span style="color:red;" ng-show="mainform.MobileNo.$error.pattern">Mobile number must be numbers only.</span>
+                    <span style="color:red;" ng-show="mainform.MobileNo.$error.minlength || mainform.MobileNo.$error.maxlength">Mobile number should be 11 digits only.</span>
+                    </div>
+                    </div>
+
+                    <div class='form-group'  >
+                    <label style="width:100px;" class='control-label  col-md-1' >Home / Tel No.</label>
+                    <div class='col-md-9'>
+                    <input type="text" name="TelNo" class="form-control" ng-minlength="6" ng-maxlength="9" ng-pattern="/^[0-9]*$/" ng-model="Master.TelNo"/>
+                    <span style="color:red;" ng-show="mainform.TelNo.$error.pattern">Home/Tel number must be numbers only.</span>
+                    <span style="color:red;" ng-show="mainform.TelNo.$error.minlength || mainform.TelNo.$error.maxlength">Home/Tel number should be atleast 6 but no more than 9 digits only.</span>
+                    </div>
+                    </div>
+
+                    <div class='form-group' ng-class="{ 'has-error' : mainform.EmailAddress.$invalid && mainform.$submitted }"  >
+                    <label style="width:100px;" class='control-label  col-md-1' >Email Address</label>
+                    <div class='col-md-9'>
+                    <input type="text" name="EmailAddress" required class="form-control" ng-model="Master.EmailAddress"/>
+                    </div>
+                    </div>
+                </td>
+                <td style="width:48%;">
+					<div style="margin-left:5px;width:100%;margin-top:5px;" class='form-group'>
+                            <div class='form-group col-md-12' ng-class="{ 'has-error' : mainform.ID_City.$invalid && mainform.$submitted }">
+                                    <label class='control-label  col-md-2'>City <span class='required'>* </span></label>
+                                    <div class='col-md-10'>
+                                        <select name="ID_City" ng-options="item.ID as item.Name for item in dropdown_source[9420]" required class="form-control" ng-model="Master.ID_City"></select>
+                                    </div>
+                                </div>
+							
+                            <div style="margin-left:5px;width:100%;margin-top:0;" class='form-group'  ng-class="{ 'has-error' : mainform.PermanentAddress.$invalid && mainform.$submitted }"  >
+                            <label style="width:1000%;text-align:left;" class='control-label  col-md-2' >Permanent Address <span class='required'>* </span><small><i style="color:#aaa">(Unit Number, House/Building/Street Number + Street Name , Barangay/District Name, City/Municipality)</i></small></label>
+                            <div class='col-md-12'>
+                            <textarea name="PermanentAddress" placeholder="Unit Number, House/Building/Street Number + Street Name , Barangay/District Name, City/Municipality"  required style='height:70px;' class="form-control" ng-model="Master.PermanentAddress"></textarea>
+                            </div>
+                            </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="form-border-bottom" style="position:relative;width:100%;margin:0;">
+        <table width="100%">
+                    <tr>
+                        <td class="form-border-right" style="width:30%;">
+                            <div>
+                                <div style="margin-top:5px;" class='form-group'  ng-class="{ 'has-error' : mainform.BirthDate.$invalid && mainform.$submitted }"  >
+                                <label style="width:100px;" class='control-label  col-md-1' >Birth Date <span class='required'>* </span></label>
+                                <div class='col-md-9'>
+                                <div class='input-group'>
+					             <!--<input type="text" id="bdate" name="BirthDate" placeholder="mm/dd/yyyy" ng-pattern='/^(0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])[\/\-]\d{4}$/' required date-to-iso  class="form-control" ng-model="Master.BirthDate"/>--> 
+					            <input type="text" id="bdate" name="BirthDate" date-to-iso-other placeholder="mm/dd/yyyy" ng-change="formatDate()" date-format="MM/dd/yyyy" data-max-date="{{minDate}}" data-start-date="{{sDate}}" required data-container="body" class="form-control" ng-model="Master.BirthDate"/>
+					            <span class='input-group-addon'><i class='fa fa-calendar'></i></span></div>
+                                <span style="color:red;" ng-show="mainform.BirthDate.$error.pattern">Invalid BirthDate.</span>
+                                </div>
+                                </div>
+
+                                <div class='form-group' ng-class="{ 'has-error' : mainform.Age.$invalid && mainform.$submitted }">
+                                <label style="width:100px;" class='control-label2 col-md-1' >Age</label>
+                                <div class='col-md-9'>
+                                <input type="hidden" ng-min="10" class="form-control" name="Age" ng-model="Master.Age" />
+                                <span class="control-label">{{getAge(Master.BirthDate)}}</span>
+                                    <br />
+                                <span style="color:red;" ng-show="mainform.Age.$error.ngMin">Age must not be less than 10 years old.</span>
+                                </div>
+                                </div>
+
+                                <div class='form-group'  ng-class="{ 'has-error' : mainform.ID_CivilStatus.$invalid && mainform.$submitted }"  >
+                                <label style="width:100px;" class='control-label  col-md-1' >Civil Status <span class='required'>* </span></label>
+                                <div class='col-md-9'>
+                                <select name="ID_CivilStatus" ng-options="item.ID as item.Name for item in dropdown_source[1151]"  required class="form-control" ng-model="Master.ID_CivilStatus"></select>
+                                </div>
+                                </div>
+
+                                <div class='form-group'  ng-class="{ 'has-error' : mainform.ID_Citizenship.$invalid && mainform.$submitted }"  >
+                                <label style="width:100px;" class='control-label  col-md-1' >Citizenship <span class='required'>* </span></label>
+                                <div class='col-md-9'>
+                                <select name="ID_Citizenship" ng-options="item.ID as item.Name for item in dropdown_source[1152]"  required class="form-control" ng-model="Master.ID_Citizenship"></select>
+                                </div>
+                                </div>
+
+                                <div class='form-group'  ng-class="{ 'has-error' : mainform.ID_Gender.$invalid && mainform.$submitted }"  >
+                                <label style="width:100px;" class='control-label  col-md-1' >Gender <span class='required'>* </span></label>
+                                <div class='col-md-9'>
+                                <select name="ID_Gender" ng-options="item.ID as item.Name for item in dropdown_source[1153]"  required class="form-control" ng-model="Master.ID_Gender"></select>
+                                </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td style="width:48%;">
+                            <table width="100%">
+                                <tr class="form-border1" style="border-top:none;border-left:none;border-right:none;border-bottom:2px solid rgb(58, 109, 58);">
+                                    <td>
+                                        <table style="margin-bottom:15px;" width="100%">
+                                            <tr>
+                                                <td style="width:110px;" ng-class="{ 'has-error' : mainform.PositionDesired.$invalid && mainform.$submitted }">
+                                                    <label style="margin-left:10px;" class='control-label' >Position Desired <span class='required'>* </span></label>
+                                                </td>
+                                                <td ng-class="{ 'has-error' : mainform.PositionDesired.$invalid && mainform.$submitted }">
+                                                    <div class='col-md-11'>
+														 <input type="text" name="PositionDesired" required class="form-control" ng-model="Master.PositionDesired"/>
+                                                    </div>
+                                                        <!-- <select name="ID_Designation" ng-options="item.ID as item.Name for item in dropdown_source[1154]"  required class="form-control" ng-model="Master.ID_Designation"></select><i></i> -->
+											        </div>
+                                                </td>
+                                                <td style="width:100px;" ng-class="{ 'has-error' : mainform.SalaryDesired.$invalid && mainform.$submitted }">
+                                                    <label class='control-label' >Expected Salary <span class='required'>* </span></label>
+                                                </td>
+                                                <td ng-class="{ 'has-error' : mainform.SalaryDesired.$invalid && mainform.$submitted }">
+                                                    <div class='col-md-11'>
+                                                    <input type="text" name="SalaryDesired" required class="form-control" ng-model="Master.SalaryDesired"/>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div style="height:150px;overflow-y:auto;margin-top:-5px;margin-bottom:5px;" align="center">
+                                        <table style="margin-top:20px;margin-bottom:15px;" width="97%">
+                                            <tr>
+												<td colspan="2">
+													<table class="table table-striped table-bordered">
+														<thead>
+															<tr>
+																<th>License No</th>
+																<th>Name</th>
+																<th>Date</th>
+																<th style="width:24px;"><a style="font-size:16px;" ng-click="addnewrow(4238)" mid="4238" mtype="14"><i class="fa fa-plus"></i>+</a></th>
+															</tr>
+														</thead>
+															<tr ng-repeat="data in Detail[4238]">
+																<td>
+																	<input type="text" name="LicenseNo" required class="form-control" ng-model="data.LicenseNo"/>
+																</td>
+																<td>
+																	<input type="text" typeahead-append-to-body='true' typeahead='item as item for item in text_autocomplete_source[9424] | filter:$viewValue | limitTo:10 ' name="LicenseName"  class="form-control" ng-model="data.LicenseName"/>
+																</td>
+																<td>
+																	<input class='form-control'  date-format="MM/dd/yyyy" bs-datepicker data-container="body" date-to-iso ng-model="data.LicenseDate"/>
+																</td>
+																<td>
+																	<a ng-click="removeLiRow(4238,$index,data.ID)"><i style='color:red;'  class="fa fa-minus-circle"><b>-</b></i></a>
+																</td>
+															</tr>
+															<!-- ngRepeat: data in Detail[4121] -->
+														</tbody>
+													</table>
+                                                    </div>
+												</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+    </div>
+    <div class="form-header">
+        <div style="font-family:Arial;font-size:24px;">&nbsp;B. QUESTIONAIRE</div>
+    </div>
+    <div style="position:relative;margin-top:5px;">
+        <table>
+            <tr>
+                <td>
+                    <div class="col-md-12">
+                        <ol style="list-style-type: decimal;">
+                            <div class="col-md-12">
+                                <li ng-repeat="(key, value) in Detail[2070] | groupBy: 'Question'">
+                                    <div>{{key}}</div>
+                                    <table>
+                                        <tr ng-form name="x" ng-repeat="choice in value">
+                                            <td>{{choice.Choices}}</td>
+                                            <td style="padding:5px;">
+                                               <div ng-if="choice.ID_QuestionaireType==1"><input style="width:20px;height:20px;" type="checkbox" name='IsCheckAnswer' class='form-control' ng-model='choice.IsCheckAnswer'></div>
+                                               <div ng-if="choice.ID_QuestionaireType==2 && choice.IsRequired == 1" ng-class="{ 'has-error' : x.TextAreaAnswer.$invalid && mainform.$submitted }"><textarea name='TextAreaAnswer' required style='height:30px;width:700px;' class='form-control' ng-model='choice.TextAreaAnswer'></textarea></div>
+                                               <div ng-if="choice.ID_QuestionaireType==2 && choice.IsRequired == 0"><textarea name='TextAreaAnswer' style='height:30px;width:700px;' class='form-control' ng-model='choice.TextAreaAnswer'></textarea></div>
+                                            </td>
+                                            <td style="display:none;"><input type='hidden' name='ID_Persona' class='form-control' ng-model='choice.ID_Persona'/></td>
+                                            <td style="display:none;"><input type='hidden' name='ID_Questionaire_Details' class='form-control' ng-model='choice.ID_Questionaire_Details'/></td>
+                                            <td style="display:none;"><input type='hidden' name='ID' class='form-control' ng-model='choice.ID'/></td>
+                                        </tr>
+                                    </table>
+                                </li>
+                                
+                            </div>
+                            
+                        </ol>
+                        
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="form-header">
+        <table width="100%" align="center">
+            <tr>
+                <td width="30%"><div style="font-family:Arial;font-size:24px;color:white;">&nbsp;C. EMPLOYMENT HISTORY</div></td>
+                <td><div style="font-family:Arial;font-size:12px;color:white;"><i>(indicate last 4 companies worked with; start from the most recent; skip if not applicable)</i></div></td>
+            </tr>
+        </table>
+    </div>
+    <table>
+        <tr>
+            <td>
+                <div style="position:relative;">
+                    <div class="col-md-12 form-border" style="padding:5px;position:relative;left:-2px;width:100.3%;">
+                        <div class="col-md-12">
+                            <div style="text-align:center;" class="col-md-4">&nbsp;</div>
+                            <div style="text-align:center;" class="col-md-2">Current</div>
+                            <div style="text-align:center;" class="col-md-2">Previous</div>
+                            <div style="text-align:center;" class="col-md-2">Previous</div>
+                            <div style="text-align:center;" class="col-md-2">Previous</div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col-md-12" style="padding: 25px 5px;height: 40px;">Company Name</div>
+                            <div class="col-md-12" style="padding: 25px 5px;height: 40px;">Position Title</div>
+                            <div class="col-md-12" style="padding: 25px 5px;height: 40px;">Employment Status</div>
+                            <div class="col-md-12" style="padding: 25px 5px;height: 40px;">Tenure/No. of years worked</div>
+                            <div class="col-md-12" style="padding: 25px 5px;height: 40px;">Reason for Leaving</div>
+                            <div class="col-md-12" style="padding: 25px 5px;height: 40px;">Immediate Supervisor's Name</div>
+                            <div class="col-md-12" style="padding: 25px 5px;height: 40px;">Designation</div>
+                            <div class="col-md-12" style="padding: 25px 5px;height: 40px;">Superior's contact no.</div>
+                            <div class="col-md-12" style="display: none;">ID_Persona</div>
+                        </div>
+            
+                        <div class="col-md-2" ng-repeat="data in Detail[2066]">
+                            <div style="padding:5px;" class="col-md-12"><textarea name='Company' style='height:40px;' class='form-control' ng-model='data.Company'></textarea></div>
+                            <div style="padding:5px;" class="col-md-12"><textarea name='Designation' style='height:40px;' class='form-control' ng-model='data.Designation'></textarea></div>
+                            <div style="padding:5px;" class="col-md-12"><textarea name='EmploymentStatus' style='height:40px;' class='form-control' ng-model='data.EmploymentStatus'></textarea></div>
+                            <div style="padding:5px;" class="col-md-12"><textarea name='YearsOfService' ng-keypress="IgnoreCharacters($event)" style='height:40px;' class='form-control' ng-model='data.YearsOfService'></textarea></div>
+                            <div style="padding:5px;" class="col-md-12"><textarea name='ReasonForLeaving' style='height:40px;' class='form-control' ng-model='data.ReasonForLeaving'></textarea></div>
+                            <div style="padding:5px;" class="col-md-12"><textarea name='ImmediateSupervisor' style='height:40px;' class='form-control' ng-model='data.ImmediateSupervisor'></textarea></div>
+                            <div style="padding:5px;" class="col-md-12"><textarea name='ImmediateSupervisorDesignation' style='height:40px;' class='form-control' ng-model='data.ImmediateSupervisorDesignation'></textarea></div>
+                            <div style="padding:5px;" class="col-md-12"><textarea name='ContactNo' style='height:40px;' class='form-control' ng-model='data.ContactNo'></textarea></div>
+                            <input type='hidden' name='ID_Persona' class='form-control' ng-model='data.ID_Persona'/>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div class="form-header">
+        <div style="font-family:Arial;font-size:24px;">&nbsp;D. EDUCATIONAL ATTAINMENT</div>
+    </div>
+    <table>
+        <tr>
+            <td>
+                <div style="position:relative;">
+                    <div class="col-md-12 form-border" style="padding:5px;position:relative;left:-2px;width:100.3%;">
+                        <table class="table table-striped table-bordered col-md-12" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th>Name of School</th>
+                                            <th>Course</th>
+                                            <th>From</th>
+                                            <th>To</th>
+                                            <th style="width:24px;"><a style="font-size:16px;" ng-click="addnewrow(2068)" mid="2068" mtype="14">+</a></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-form name="x" ng-repeat="data in Detail[2068]">
+                                            <td>
+                                                <div style="padding:5px;" ng-if="data.IsRequired == 1" ng-class="{ 'has-error' : x.SchoolName.$invalid && mainform.$submitted }" ><input type="text" typeahead-append-to-body='true' typeahead='item as item for item in text_autocomplete_source[2203] | filter:$viewValue | limitTo:10 ' placeholder="College / Gradudate / Post Graduate" name='SchoolName' style='height:40px;' required class='form-control' ng-model='data.SchoolName'></div>
+                                                <div style="padding:5px;" ng-if="data.IsRequired == 0"><input type="text" typeahead-append-to-body='true' typeahead='item as item for item in text_autocomplete_source[2203] | filter:$viewValue | limitTo:10 ' placeholder="College / Gradudate / Post Graduate" name='SchoolName' style='height:40px;' class='form-control' ng-model='data.SchoolName'></div>
+                                            </td>
+                                            <td>
+                                                <div style="padding:5px;" ng-if="data.IsRequired == 1" ng-class="{ 'has-error' : x.DegreeMajorHonor.$invalid && mainform.$submitted }"><textarea name='DegreeMajorHonor' style='height:40px;' required class='form-control' ng-model='data.DegreeMajorHonor'></textarea></div>
+                                                <div style="padding:5px;" ng-if="data.IsRequired == 0"><textarea name='DegreeMajorHonor' style='height:40px;' class='form-control' ng-model='data.DegreeMajorHonor'></textarea></div>
+                                            </td>
+                                            <td>
+                                                <div style="padding:5px;" ng-if="data.IsRequired == 1" ng-class="{ 'has-error' : x.YearFrom.$invalid && mainform.$submitted }" ><textarea name='YearFrom' style='height:40px;' required class='form-control' ng-model='data.YearFrom'></textarea></div>
+                                                <div style="padding:5px;" ng-if="data.IsRequired == 0"><textarea name='YearFrom' style='height:40px;' class='form-control' ng-model='data.YearFrom'></textarea></div>
+                                            </td>
+									        <td>
+                                                <div style="padding:5px;" ng-if="data.IsRequired == 1" ng-class="{ 'has-error' : x.YearTo.$invalid && mainform.$submitted }" ><textarea name='YearTo' style='height:40px;' required class='form-control' ng-model='data.YearTo'></textarea></div>
+                                                <div style="padding:5px;" ng-if="data.IsRequired == 0"><textarea name='YearTo' style='height:40px;' class='form-control' ng-model='data.YearTo'></textarea></div>
+                                                <input type='hidden' name='ID_Persona' class='form-control' ng-model='data.ID_Persona'/>
+                                                <input type='hidden' name='IsRequired' class='form-control' ng-model='data.IsRequired'/>
+									        </td>
+                                            <td>
+                                                <a ng-click="removeLiRow(2068,$index,data.ID)"><i style='color:red;'  class="fa fa-minus-circle"><b>-</b></i></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                        <div class="col-md-12">
+                            <div style="padding:5px;" class="col-md-4" ng-form name='x' ><textarea placeholder="School Activities" name='SchoolActivities' style='height:40px;' class='form-control' ng-model='Master.SchoolActivities'></textarea></div>
+                            <div style="padding:5px;" class="col-md-4" ng-form name='x' ><textarea placeholder="Community Activities" name='CommunityActivities' style='height:40px;' class='form-control' ng-model='Master.CommunityActivities'></textarea></div>
+                            <div style="padding:5px;" class="col-md-4" ng-form name='x' ><textarea placeholder="Professional / Business Activities" name='ProfessionalActivities' style='height:40px;' class='form-control' ng-model='Master.ProfessionalActivities'></textarea></div>
+                            <div style="padding:5px;" class="col-md-4" ng-form name='x' ><textarea placeholder="Hobbies" name='Hobbies' style='height:40px;' class='form-control' ng-model='Master.Hobbies'></textarea></div>
+                            <div style="padding:5px;" class="col-md-4" ng-form name='x' ><textarea placeholder="Interests" name='Interests' style='height:40px;' class='form-control' ng-model='Master.Interests'></textarea></div>
+                            <div style="padding:5px;" class="col-md-4" ng-form name='x' >
+							<table width="100%">
+                                            <tr>
+                                                <td><textarea placeholder="Sports" name='Sports' style='height:40px;' class='form-control' ng-model='Master.Sports'></textarea>
+                                                <td><div style="float:left;margin-top:5px;">&nbsp;&nbsp;Athlete</div>&nbsp;&nbsp;&nbsp; <input type="checkbox" name="IsAthlete" style="width:25px;height:20px;" ng-model="Master.IsAthlete" /></td>
+                                            </tr>
+                                        </table>
+							</div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div class="form-header">
+        <div style="font-family:Arial;font-size:24px;">&nbsp;E. CHARACTER REFERENCES</div>
+    </div>
+    <table width="100%">
+        <tr>
+            <td>
+                <div style="position:relative;">
+                    <div class="col-md-12 form-border" style="padding:5px;position:relative;left:-2px;width:100.3%;">
+                        <div class="col-md-12">
+                            <div style="text-align:center;" class="col-md-3">Name</div>
+                            <div style="text-align:center;" class="col-md-3">Company</div>
+                            <div style="text-align:center;" class="col-md-3">Position</div>
+                            <div style="text-align:center;" class="col-md-3">Contact #</div>
+                        </div>
+            
+                        <div class="col-md-12" ng-form name='x' ng-repeat="data in Detail[2069]">
+                            <div style="padding:5px;" class="col-md-3" ng-class="{ 'has-error' : x.Name.$invalid && mainform.$submitted }"><textarea required ng-keypress="IgnoreNumbers($event)" name='Name' style='height:40px;' class='form-control' ng-model='data.Name'></textarea><span style="color:red;" ng-show="x.Name.$error.pattern">Name shouldn't contain special characters or numbers.</span></div>
+                                    <div style="padding:5px;" class="col-md-3" ng-class="{ 'has-error' : x.CompanyName.$invalid && mainform.$submitted }"><textarea required name='CompanyName' style='height:40px;' class='form-control' ng-model='data.CompanyName'></textarea></div>
+                                    <div style="padding:5px;" class="col-md-3" ng-class="{ 'has-error' : x.Designation.$invalid && mainform.$submitted }"><textarea required name='Designation' style='height:40px;' class='form-control' ng-model='data.Designation'></textarea></div>
+                                    <div style="padding:5px;" class="col-md-3" ng-class="{ 'has-error' : x.ContactNo.$invalid && mainform.$submitted }"><textarea required name='ContactNo' style='height:40px;' class='form-control' ng-model='data.ContactNo'></textarea></div>
+                                    
+                                    <!--<div style="padding:5px;" ng-if="data.IsRequired == 0" class="col-md-3"><textarea ng-keypress="IgnoreNumbers($event)" name='Name' style='height:40px;' class='form-control' ng-model='data.Name'></textarea><span style="color:red;" ng-show="x.Name.$error.pattern">Name shouldn't contain special characters or numbers.</span></div>
+                                    <div style="padding:5px;" ng-if="data.IsRequired == 0" class="col-md-3"><textarea name='CompanyName' style='height:40px;' class='form-control' ng-model='data.CompanyName'></textarea></div>
+                                    <div style="padding:5px;" ng-if="data.IsRequired == 0" class="col-md-3"><textarea name='Designation' style='height:40px;' class='form-control' ng-model='data.Designation'></textarea></div>
+                                    <div style="padding:5px;" ng-if="data.IsRequired == 0" class="col-md-3"><textarea name='ContactNo' style='height:40px;' class='form-control' ng-model='data.ContactNo'></textarea></div>
+									-->
+                            <input type='hidden' name='ID_Persona' class='form-control' ng-model='data.ID_Persona'/>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div class="form-header">
+        <div style="font-family:Arial;font-size:24px;">&nbsp;F. ACKNOWLEDGEMENT and AUTHORIZATION</div>
+    </div>
+    <div style="position:relative;">
+        <p style="font-family: Arial;font-size: 16px;padding:25px;line-height:25px;">
+            <i>
+                I hereby acknowledge that I am being considered for a position in Ayala Land, Inc. or any of its subsidiaries.
+                <br />
+                <br />
+                I certify that the statements made in this personal information form are correct and complete to the best of my knowledge.
+                <br />
+                I hereby authorize Ayala Land, Inc. to make reasonable inquiries from my schools, former associates, employers, customers and references. I understand
+                <br />
+                that any misrepresentation, falsification, or any omision of facts, of whatever nature, that I indicated on this form shall be considered sufficient cause for
+                <br />
+                dismissal at anytime during employment.
+            </i>
+            <br />
+            <br />
+            <table width="60%" align="center">
+                <tbody>
+                    <tr>
+                        <td class="form-border-bottom" style="text-align:center;font-weight:bold;font-size:20px;">&nbsp;{{Master.FirstName}}&nbsp;{{Master.MiddleName}}&nbsp;{{Master.LastName}}</td>
+                        <td style="width:30%;">&nbsp;</td>
+                        <td class="form-border-bottom">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:center;">Applicant's Name and Signature</td>
+                        <td>&nbsp;</td>
+                        <td style="text-align:center;">Date Accomplished</td>
+                    </tr>
+                </tbody>
+            </table>
+        </p>
+    </div>
+    <hr class="form-border1" style="margin:0;padding:0;" />
+    <p style="padding:5px;font-family:Arial;font-size:18px;">Remarks: (to be filled out by HR only)</p>
+    <div style="position:relative;">
+        <textarea name="Remarks" style='height:70px;' class="form-control" ng-model="Master.Remarks"></textarea>
+    </div>
+
+</div>
+</fieldset>
+    </div>
+	</div>
+<div ng-if="Detail[4235].length > 0" title='Essay' bs-pane>
+        <div class='form_template form-horizontal' >
+        <fieldset>
+		<legend>Essay</legend>
+		<br>
+                <div style="position:relative;margin-top:5px;">
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="col-md-12">
+                                    <ol style="list-style-type: decimal;">
+                                        <div class="col-md-12">
+                                            <li ng-repeat="d in Detail[4235]">
+                                                <div>{{d.Essay}}</div>
+                                                <table>
+                                                    <tr>
+                                                        <td style="padding:5px;">
+                                                            <div ng-form name='x' ng-class="{ 'has-error' : x.Answer.$invalid && mainform.$submitted }" ><textarea name='Answer' rows="5" cols="100" required class='form-control' ng-model='d.Answer'></textarea></div>
+                                                        </td>
+                                                        <td style="display:none;"><input type='hidden' name='ID_Persona' class='form-control' ng-model='d.ID_Persona'/></td>
+                                                        <td style="display:none;"><input type='hidden' name='ID_Essay' class='form-control' ng-model='d.ID_Essay'/></td>
+                                                        <td style="display:none;"><input type='hidden' name='ID' class='form-control' ng-model='d.ID'/></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                </table>
+                                            </li>
+                                
+                                        </div>
+                            
+                                    </ol>
+                        
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+</div>
+    </form>
+    </div>

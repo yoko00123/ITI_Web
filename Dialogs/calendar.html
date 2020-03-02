@@ -1,0 +1,44 @@
+﻿<!-- CALENDAR -->
+<div class="col-md-12" style="background-color: #ffffff;">
+    <div class="well well-light no-margin no-padding" style="padding-top: 0px!important;border: none;">
+        <div class="maincontainer clearfix" style="background-color: #ffffff; border: 0px;">
+            <div class="col-md-12">
+                <div class="calendar-select-grp">
+                    <select ng-if="EmployeeSource.length > 0" ng-model="Master.calendarEmployee" ng-change="gotoMonth()" ng-options="m.ID as m.Name for m in EmployeeSource" class="employeecalendar"></select>
+                    <!--<b ng-if="EmployeeSource.length > 0">&nbsp;</b>-->
+                    <select ng-model="Master.calendarMonth" ng-change="gotoMonth()" ng-options="m.ID as m.Name for m in months" class="monthcalendar"></select>
+                    
+                    <select ng-model="Master.calendarYear" ng-change="gotoYear()" ng-options="m.ID as m.Name for m in years" class="yearcalendar"></select>
+
+                    <div class="btn-group calendar-btn-grp">
+                        <button class="btn btn-primary sidebuttoncalendar" ng-click="prev()"><i class="fa fa-caret-left"></i>&nbsp;&nbsp;Previous</button>
+                        <button class="btn btn-default todaycalendar" ng-click="setCalendarToToday()">Today</button>
+                        <button class="btn btn-primary sidebuttoncalendar" ng-click="next()">Next&nbsp;&nbsp;<i class="fa fa-caret-right"></i></button>
+                        <button class="close_calButton" ng-click="closeDg()" title="Close calendar"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <!--<div class="row">
+                    <div class="col-md-12 text-center">
+                        
+                    </div>
+                    <br class="visible-xs visible-sm">
+                </div>-->
+                <br />
+                <ng-calendar calendar-events="events"
+                             calendar-view="calendarView"
+                             calendar-current-day="calendarDay"
+                             calendar-control="Master.calendarControl"
+                             calendar-event-click="eventClicked($event)"
+                             calendar-edit-event-html="'<i class=\'glyphicon glyphicon-pencil\'></i>'"
+                             calendar-delete-event-html="'<i class=\'glyphicon glyphicon-remove\'></i>'"
+                             calendar-edit-event-click="eventEdited($event)"
+                             calendar-delete-event-click="eventDeleted($event)"
+                             calendar-auto-open="false"
+                             calendar-cell-template="'Dialogs/calendarCell.html'"
+                             calendar-main-event="mainEvent">
+                </ng-calendar>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- CALENDAR -->

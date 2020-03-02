@@ -1,0 +1,23 @@
+﻿<div class="modal-header">
+    <h4 class="modal-title">
+        <span class="fa fa-users "></span> Employees
+    </h4>
+</div>
+<div class="modal-body clearfix" style="max-height: 1200px;">
+    <div class="ei-table-container ei-employee-list">
+        <table class="table table-condensed">
+            <thead>
+                <tr>
+                    <th><i class="fa fa-id-card"></i> ID</th>
+                    <th><i class="fa fa-user"></i> Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="data in EmployeeSource" ng-click="Select(data.ID)">
+                    <td>{{data.ID}}</td>
+                    <td>{{data.Name}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div> 

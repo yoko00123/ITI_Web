@@ -1,0 +1,150 @@
+@import "_Mixins.scss";
+@import "_Settings.scss";
+
+.#{$Name} .btn.btn-ribbon {
+	background-color: $mainColor;
+}
+
+.#{$Name} .form_template {
+    padding: 10px;
+}
+
+.#{$Name} .button-holder {
+    border-bottom: 2px solid $borderBottomColor;
+    background-color: rgb(243, 243, 243);
+    margin-bottom:5px
+}
+
+.#{$Name} .button-bottom {
+    border-bottom: none;
+    border-top: 2px solid rgb(58, 109, 58);
+}
+
+.#{$Name} .btn-primary.active,
+.#{$Name} .btn-primary:active,
+.#{$Name} .btn-primary:focus,
+.#{$Name} .btn-primary:hover,
+.#{$Name} .open > .dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: $mainColor;
+    border-color: $borderBottomColor;
+}
+
+.#{$Name} .btn-primary {
+    color: $buttonFontColor;
+    background-color: $mainColor;
+    border-color: $mainColor;
+}
+
+.#{$Name} aside {
+    display: block;
+    overflow: hidden;
+    background: $mainColor;
+    min-height: 100%;
+}
+
+.#{$Name} nav ul li a {
+    line-height: normal;
+    font-size: 14px;
+    padding: 10px 10px 10px 11px;
+    color: $menuFontColor;
+    display: block;
+    font-weight: 400;
+    text-decoration: none !important;
+    position: relative;
+}
+
+.#{$Name} nav ul ul,
+.#{$Name} nav ul ul ul {
+    border-bottom: 2px solid $borderBottomColor;
+}
+
+.#{$Name} .nav-tabs > li.active > a {
+	-webkit-box-shadow : none;
+	-moz-box-shadow: none;
+	-ms-box-shadow: none;
+	box-shadow: none;
+	font-weight:normal!important;
+}
+
+.#{$Name} .tabs-left > ul > li > a {
+    background-color: $tabInActiveColor;
+}
+
+.#{$Name} logo img {
+    width: 160px !important;
+    height: 40px !important;
+}
+
+/*GRID*/
+.#{$Name} .ngHeaderContainer {
+    background-color: #fff;
+    color: #1F1F1F;
+}
+
+.#{$Name} .ngRow.even {
+    background-color: $tableRowEvenColor;
+}
+
+.#{$Name} .ngAggregate { 
+    background-color: $tableAggregateColor;
+}
+
+.#{$Name} .fa-edit {
+    color: $mainColor;
+}
+
+.#{$Name} .smart-form .toggle i:before {
+    background-color: $mainColor;
+}
+
+.#{$Name} .smart-form .checkbox input:checked+i,.#{$Name} .smart-form .radio input:checked+i,.#{$Name} .smart-form .toggle input:checked+i {
+    border-color: $mainColor;
+}
+
+.#{$Name} .nav-tabs{ border-bottom: solid 3px $mainColor!important; }
+.#{$Name} .nav-tabs > li.active > a,.#{$Name} .nav-tabs > li.active > a:focus,.#{$Name} .nav-tabs > li.active > a:hover { 
+    color: #fff;
+    background-color: $mainColor;
+}
+
+.redactor-toolbar {
+	background: $mainColor!important;
+}	
+	
+.redactor-toolbar li a {
+	color: #fff!important;
+}
+ 
+.redactor-toolbar li a:hover {
+	background: #fff!important;
+	color: #000!important;
+}
+	 
+.redactor-toolbar li a:active,
+.redactor-toolbar li a.redactor-act {
+	background: $mainColor !important;
+	color: #aaa!important;
+}
+
+.has-error .redactor-box { 
+    border: 1px solid #b94a48!important;
+}
+
+.#{$Name} .home {
+    background-color: $mainColor;
+}
+
+.#{$Name} .sidebar-nav-v1 a:hover{
+	color: $mainColor;
+	text-decoration: none;
+}
+
+.#{$Name} .btn-group-action .btn {  background-color: $mainColor;color: #fff; }
+
+.#{$Name} #loading-bar .bar { background: $mainColor!important; }
+
+.menu-on-top.#{$Name} nav ul ul li a:hover, .menu-on-top.#{$Name} nav ul ul li:hover > a, .menu-on-top.#{$Name} nav ul ul ul li a:hover { 
+    color: #fff;
+    background-color: $borderBottomColor;
+}

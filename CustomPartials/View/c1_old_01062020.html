@@ -1,0 +1,646 @@
+<style>
+    .breadcrumb > li {
+        float: none;
+    }
+
+    .content {
+        padding: 0px;
+    }
+
+    .ribbon .breadcrumb > li + li:before {
+        content: " ";
+    }
+
+    .btn.btn-ribbon {
+        background-color: transparent !important;
+        background-image: none;
+        color: #4A4A4A;
+        margin: 0;
+        line-height: 25px;
+        height: 25px;
+    }
+
+        .btn.btn-ribbon i {
+            margin-right: 5px;
+        }
+
+    .btn.active, .btn:active {
+        -webkit-box-shadow: inset 0 3px 5px rgba(0,0,0,.125);
+        box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+    }
+
+    .btn {
+        box-shadow: inset 0 -2px 0 rgba(0,0,0,.125);
+        -moz-box-shadow: inset 0 -2px 0 rgba(0,0,0,.125);
+        -webkit-box-shadow: inset 0 -2px 0 rgba(0,0,0,.125);
+    }
+
+    .button-holder {
+        background-color: transparent !important;
+    }
+
+    .breadcrumb > li {
+        margin: 0;
+    }
+
+    .well {
+        border: none;
+        border-radius: 0px;
+        background-color: transparent !important;
+        padding-top: 10px !important;
+    }
+
+    .left-panel {
+        padding: 15px 0px !important;
+    }
+
+    .profile {
+        padding: 10px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+        background-color: #FFF;
+        border: 1px solid #e3e3e3;
+        border-radius: 0px;
+        box-shadow: 3px 4px 15px #888;
+    }
+
+        .profile div {
+            text-align: center;
+        }
+
+    .list-group {
+        margin-bottom: 0px;
+    }
+
+    .maincontainer {
+        border: 1px solid rgb(240, 240, 240);
+        padding: 5px;
+        background-color: #F8F8F8;
+    }
+
+    .container {
+        display: table;
+        width: 99%;
+        border-collapse: collapse;
+    }
+
+        .container .breadcrumb {
+            background-color: transparent !important;
+            padding-left: 15px;
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 0px;
+            border-bottom: 1px solid #E3E3E3;
+        }
+
+            .container .breadcrumb > li + li:before, .container .breadcrumb > li:first-child {
+                color: #A2A2A2;
+            }
+
+    .heading {
+        font-weight: bold;
+        display: table-row;
+        /*background-color: #1fa67a;*/
+        text-align: center;
+        line-height: 25px;
+        font-size: 14px;
+        /*font-family: georgia;*/
+        color: black;
+        border-bottom: 1px solid rgb(58, 109, 58);
+    }
+
+        .heading a {
+            color: inherit;
+        }
+
+    .table-row {
+        display: table-row;
+        border-bottom: 1px solid rgb(240, 240, 240);
+        line-height: 35px;
+    }
+
+        .table-row.even {
+            background-color: #FFFFFF;
+        }
+
+    .table-group {
+        display: table-caption;
+        background-color: #c9dde1;
+        padding: 5px 5px 5px 10px;
+        height: 30px;
+        font-weight: bold;
+        margin-top: 2px;
+    }
+
+    .col {
+        display: table-cell;
+    }
+
+    .rowicon {
+        width: 3%;
+    }
+
+    .rowdate {
+        width: 15%;
+    }
+
+    .rowmessage {
+        width: auto;
+    }
+
+    .grouping {
+        padding: 5px;
+        background-color: #1fa67a;
+        color: white;
+    }
+
+        .grouping a {
+            color: inherit;
+        }
+
+    .container .table-group input[type=checkbox], .container .table-row input[type=checkbox] {
+        height: 16px;
+        width: 16px;
+    }
+
+    .container.footer {
+        border-top: 2px solid rgb(31, 166, 122);
+        line-height: 35px;
+        font-weight: bold;
+    }
+
+    .sub-menu li span {
+        margin-left: 10px;
+    }
+
+    .sub-menu li i {
+        color: rgb(0, 113, 75);
+        font-size: 8px;
+    }
+
+    .scrolltable {
+        max-height: 400px;
+        overflow-y: scroll;
+    }
+
+    button.on {
+        color: lightgreen !important;
+    }
+
+    .filter_container {
+        padding: 10px;
+        background-color: #EAEAEA;
+    }
+
+        .filter_container.button-holder {
+            height: 100%;
+            margin-bottom: 0px;
+        }
+
+    .list-group-item {
+        background-color: #F8F8F8;
+    }
+
+    .green .nav-tabs {
+        border-width: 2px !important;
+    }
+
+    .page-header {
+        padding-bottom: 9px;
+        margin: 20px 0 0px 10px;
+        border-bottom: none;
+        color: #7f8c8d;
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+
+    .huge {
+        font-size: 40px;
+    }
+
+    .announcementRow {
+        margin-left: 15px;
+        margin-bottom: 10px;
+        background-color: #ffffff;
+        border-radius: 0px;
+        border: none;
+        width: 98%;
+        min-height: 140px;
+        /*max-height: 140px;*/
+        -webkit-box-shadow: 3px 4px 15px #888;
+        box-shadow: 3px 4px 15px #888;
+    }
+
+    /*.announcementRow:first-child {
+            margin-top: 10px;
+        }*/
+
+    body {
+        background-color: #F8F8F8;
+    }
+
+    .nav-tabs > li.active > a {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .nav-tabs > li > a:hover {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .list-group > li:last-child {
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
+    .list-group > li {
+        background-color: #ffffff;
+    }
+
+    .box {
+        padding: 0px !important;
+        width: 99%;
+        left: 5px;
+        border-radius: 10px;
+        -webkit-box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.75);
+        box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.75);
+    }
+
+    #employee-code {
+        text-align: center;
+        color: #2c3e50;
+        font-weight: bold;
+    }
+
+    #employee-details {
+        text-align: initial;
+        color: #2c3e50;
+    }
+
+    .view-profile {
+        display: flex;
+        text-align: center;
+        margin: 0px -11px -11px -11px;
+        padding: 10px;
+        background-color: #2c3e50;
+        color: #fff;
+    }
+
+    time.icon {
+        background-color: #2c3e50;
+        box-shadow: 3px 4px 15px #888;
+        overflow: hidden;
+        width: 90px;
+        height: 90px;
+        margin-bottom: 10px;
+    }
+
+        time.icon strong {
+            padding: 5px 0px;
+            text-transform: uppercase;
+            font-size: 18px;
+            font-weight: normal;
+            background-color: #2786a2;
+        }
+
+        time.icon span {
+            margin-top: 25px !important;
+            color: #fff;
+            font-weight: normal;
+            font-size: 50px;
+        }
+
+    .announcement.carousel .carousel-control {
+        display: none;
+    }
+
+    .announcement.carousel .carousel-indicators {
+        position: absolute;
+        margin: 0px;
+        bottom: 15px;
+        left: 36px;
+        text-align: left;
+    }
+
+        .announcement.carousel .carousel-indicators li {
+            background-color: #7f8c8d;
+        }
+
+            .announcement.carousel .carousel-indicators li.active {
+                background-color: #2c3e50;
+            }
+
+    .custom-nav {
+        background-color: #fff;
+        box-shadow: 3px 4px 15px #888;
+        border-radius: 0px;
+        margin: 0px -5px;
+        padding: 5px 14px 14px 14px !important;
+    }
+
+        .custom-nav .nav-tabs {
+            border-bottom: 1px solid #ccc !important;
+            margin-bottom: 10px;
+        }
+
+            .custom-nav .nav-tabs li a {
+                border: none !important;
+                font-size: 18px;
+                color: #7f8c8d;
+                background-color: transparent !important;
+                cursor: pointer !important;
+            }
+
+            .custom-nav .nav-tabs li.active a,
+            .custom-nav .nav-tabs li.active a:focus,
+            .custom-nav .nav-tabs li.active a:hover {
+                color: #2c3e50;
+            }
+
+        .custom-nav .list-group {
+            display: flex;
+            overflow: auto;
+        }
+
+            .custom-nav .list-group li {
+                max-width: 150px !important;
+                max-height: 150px !important;
+                min-width: 150px !important;
+                min-height: 150px !important;
+                border-radius: 0px;
+                border: 2px solid #2c3e50;
+                cursor: pointer;
+                padding: 5px;
+                margin: 5px;
+                transition: background-color .3s;
+            }
+
+                .custom-nav .list-group li:hover {
+                    background-color: #2786a2 !important;
+                    transition: background-color .3s;
+                }
+
+                    .custom-nav .list-group li:hover a,
+                    .custom-nav .list-group li:hover a .badge,
+                    .custom-nav .list-group li:hover a .app,
+                    .custom-nav .list-group li:hover a .itm-icon {
+                        color: #fff !important;
+                    }
+
+                .custom-nav .list-group li a .badge {
+                    position: absolute;
+                    bottom: 5px;
+                    right: 5px;
+                    color: #2c3e50;
+                    background-color: transparent;
+                    font-size: 18px;
+                }
+
+                .custom-nav .list-group li a .itm-icon {
+                    position: relative;
+                    margin: 0px;
+                    top: 40px;
+                    color: #2c3e50;
+                    text-transform: uppercase;
+                    font-size: 60px;
+                    width: 100%;
+                    text-align: center;
+                }
+    /*Announcement fade-in Fx*/
+
+    .carousel-fade .carousel-inner .item {
+        opacity: 0;
+        transition-property: opacity;
+    }
+
+    .carousel-fade .carousel-inner .active {
+        opacity: 1;
+    }
+
+        .carousel-fade .carousel-inner .active.left,
+        .carousel-fade .carousel-inner .active.right {
+            left: 0;
+            opacity: 0;
+            z-index: 1;
+        }
+
+    .carousel-fade .carousel-inner .next.left,
+    .carousel-fade .carousel-inner .prev.right {
+        opacity: 1;
+    }
+
+    .carousel-fade .carousel-control {
+        z-index: 2;
+    }
+
+    @media all and (transform-3d), (-webkit-transform-3d) {
+        .carousel-fade .carousel-inner > .item.next,
+        .carousel-fade .carousel-inner > .item.active.right {
+            opacity: 0;
+            -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+        }
+
+        .carousel-fade .carousel-inner > .item.prev,
+        .carousel-fade .carousel-inner > .item.active.left {
+            opacity: 0;
+            -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+        }
+
+            .carousel-fade .carousel-inner > .item.next.left,
+            .carousel-fade .carousel-inner > .item.prev.right,
+            .carousel-fade .carousel-inner > .item.active {
+                opacity: 1;
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+            }
+    }
+</style>
+<!--<div class='ribbon'>
+    <ol class='breadcrumb'>
+        <li></li>
+        <li ng-click="setActiveTab('Home');"><span class='btn btn-ribbon' ng-class="{ active : active_tab == 'Home' }"><i class='fa fa-home'></i>Home</span></li>
+    </ol>
+    <div menu-links menu="mID"></div>
+</div>-->
+<div class='content clearfix'>
+    <div style="background-color:#F8F8F8;" class="col-md-12">
+
+        <div class="left-panel col-md-3">
+            <!-- PROFILE -->
+            <div class="row">
+                <div class="col-sm-12" style="z-index:2;padding: 0px 20px!important;">
+                    <div class="profile">
+                        <p data-tooltip="Code" id="employee-code">Employee Code : {{employee.Code}}</p>
+                        <div id="EmployeeImage">
+                            <img id="Img1" image-exist ng-src='Upload/{{employee.ImageFile_GUID}}' alt='{{Session.ProfileImage}}' style="width:150px;height:150px;" />
+                            <!--<img class="uploadPhoto" src="Resources/System/uploadPhoto.png" style="display:none;" title="Upload image" ng-click="toggleUploadFile()" />
+                            <img class="savePhoto" src="Resources/System/saveUpload.png" style="display:none;" title="Save image" ng-click="saveUploadFile()" />
+                            <img class="cancelPhoto" src="Resources/System/cancelUpload.png" style="display:none;" title="Revert image" ng-click="cancelUploadFile()" />-->
+                            <!--<input type='file' id="ImageFile" style="display:none;" name='ImageFile' file-input ng-file-select='onFileSelect($files, $event) ' onclick='this.value = null' ng-model='Master.ImageFile' />-->
+                        </div>
+                        <div>
+                            <h5 style='margin:0px!important'>
+                                <br>
+                                {{employee.Name1}}
+                            </h5>
+                            <br>
+
+                            <ul class="list-unstyled">
+                                <li>
+                                    <p class="text-muted">
+                                        <i></i>&nbsp;&nbsp;<span class="txt-color-darken">{{employee.Department}}</span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p class="text-muted">
+                                        <i></i>&nbsp;&nbsp;<span class="txt-color-darken">{{employee.Designation}}</span>
+                                    </p>
+                                </li> 
+                            </ul>
+                            <p class="text-muted view-profile" ng-if="employee.ID_Employee > 0">
+                                <a ui-sref='5019({ ID_5019:Session.$$ID_Employee})' style="color:#fff;width:100%;"><i class="fa fa-user"></i> View Profile</a>
+                            </p>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12" style="z-index:2;padding: 0px 20px!important;">
+                    <div class="WidgetDropDown">
+                        <p class="text-muted WidgetItem" ng-if='employee.WebMyApprovals == true'>
+                            <i class="fa fa-users"></i>&nbsp;&nbsp;<span class="txt-color-darken"><a ui-sref='8071({ ID_8071:Session.$$ID_Employee})' style="color:#fff;">My Approvals</a></span>
+                        </p>
+                        <p class="text-muted WidgetItem" ng-if="employee.WebDirectReport == true">
+                            <i class="fa  fa-area-chart"></i>&nbsp;&nbsp;<span class="txt-color-darken"><a ui-sref='8084({ ID_8084:0})' style="color:#fff;">My Direct Reports</a></span>
+                        </p> 
+						<p class="text-muted WidgetItem" ng-if="employee.WebDirectReport == true">
+                            <i class="fa  fa-area-chart"></i>&nbsp;&nbsp;<span class="txt-color-darken"><a ui-sref='8111({ ID_8111:0})' style="color:#fff;">View Record Employee</a></span>
+                        </p> 
+                        <p class="text-muted WidgetItem" ng-if="employee.WebMyHR == true">
+                            <i class="fa fa-universal-access"></i>&nbsp;&nbsp;<span class="txt-color-darken"><a ui-sref='4032({ ID_4032:Session.$$ID_Employee})' style="color:#fff;">My HR</a></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- PROFILE -->
+            <!-- LEAVE CREDITS -->
+            <div class="row">
+                <div class="col-sm-12" style="margin-top:0px;padding: 0px 20px!important;">
+                    <div class="profile" title='Leave Credits' ng-if='gridData[4033].length > 0'>
+                        <div class="row">
+                            <div style="width:99%;padding:10px;font-size:16px;border-bottom:1px solid #ddd;">Leave Credits</div>
+                            <table style="width:99%;" align="center" class="table table-hover">
+                                <thead class="LeaveCreditsTH" style="background-color: #2c3e50;">
+                                    <tr>
+                                        <td>Leave Item</td>
+                                        <td>Alloted</td>
+                                        <td>Used</td>
+                                        <td>Balance</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="data in gridData[4033]">
+                                        <td>{{data.LeaveItem}}</td>
+                                        <td>{{data.Alloted}}</td>
+                                        <td>{{data.Used}}</td>
+                                        <td>{{data.Balance}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- LEAVE CREDITS -->
+        </div>
+
+        <div class="col-md-9" style="padding: 0px 20px!important;">
+            <!-- ANNOUNCEMENTS -->
+            <h2 class="page-header">Dashboard</h2>
+            <div class="row" style="margin-right:-3px;">
+                <div title='Announcements'>
+                    <div style="min-height:50px;height:50px;" class="col-md-12 announcementRow" ng-if="gridData[4029].length == 0">
+                        <div class="col-sm-12">
+                            <i style="font-size: 16px;text-align: center;padding: 5px;"></i><p dd-text-collapse dd-text-collapse-max-length="200" dd-text-collapse-text="Please wait for the next announcement." style="max-height:90px;overflow-y:auto;"></p>
+                        </div>
+                    </div>
+                    <div class="announcement carousel-fade" ng-if="gridData[4029].length > 0" carousel interval="10000">
+                        <div class="col-md-12 announcementRow" ng-repeat="data in gridData[4029]" slide>
+                            <div class="col-sm-2" style="margin-left:10px;margin-right:-20px;">
+                                <time class="icon">
+                                    <strong>{{data.DateToShow | date:'MMM'}}</strong>
+                                    <span style="margin-top:8px;">{{data.DateToShow | date:'dd'}}</span>
+                                </time>
+                            </div>
+                            <div class="col-sm-10">
+                                <h6 style="text-align:left;" class="no-margin"><a style="color: #2c3e50;">{{data.Name}}</a> <i class="fa fa-folder-open fa-fw" style="cursor:pointer;" title="See Attachments" ng-click="openAttachments(data.ID)" ng-if="data.HasAttachment==1"></i></h6>
+                                <p dd-text-collapse dd-text-collapse-max-length="200" dd-text-collapse-text="{{data.Comment}}" style="text-align:left;"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ANNOUNCEMENTS -->
+            <div class="col-md-12" ng-if="gridData[4029].length > 2" style="margin-bottom:-10px;margin-top:-10px;">
+                <h1 class="page-header"></h1>
+            </div>
+            <!-- TABS -->
+            <div class="row" style="margin-left:-3px;">
+                <div class="col-sm-12">
+                    <div style="border:0px!important;" ng-if="active_tab == 'Home' && (menuApprovals.length > 0 || menuFiling.length > 0)" bs-tabs class="nav-tabs custom-nav col-sm-12 box">
+                        <!-- APPLICATIONS -->
+                        <div bs-pane title='My Applications' ng-if='menuFiling.length > 0'>
+                            <ul class="list-group sidebar-nav-v1 sub-menu" id="Ul1">
+                                <li ui-sref="{{mf.ID_WebMenuFiling}}" ng-repeat="mf in menuFiling" class="list-group-item">
+                                    <a>
+                                        <span style="margin:0px;color:#2c3e50;" class="app">{{mf.Name}}</span>
+                                        <p class="itm-icon">{{setIcon(mf.Name)}}</p>
+                                        <span class="badge pull-right">{{mf.Cnt}}</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- APPLICATIONS -->
+                        <!-- APPROVALS -->
+                        <div bs-pane title='My Approvals' ng-if='menuApprovals.length > 0'>
+                            <ul class="list-group sidebar-nav-v1 sub-menu" id="Ul2">
+                                <li ui-sref="{{ma.ID_WebMenuApproval}}" ng-repeat="ma in menuApprovals" class="list-group-item">
+                                    <a>
+                                        <span style="margin:0px;color:#2c3e50;" class="app">{{ma.Name}}</span>
+                                        <p class="itm-icon">{{setIcon(ma.Name)}}</p>
+                                        <span class="badge pull-right">{{ma.Approvals}}</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- APPROVALS -->
+
+                    </div>
+                </div>
+            </div>
+            <!-- TABS -->
+        </div>
+
+    </div>
+</div>
+<div class="halloween" ng-if="Halloween">
+    <div class="head">
+        <div class="skull">
+            <div class="eyes">
+                <div class="eye eye-left"></div>
+                <div class="eye eye-right"></div>
+            </div>
+        </div>
+    </div>
+    <div class="body"></div>
+    <div class="legs"></div>
+</div>

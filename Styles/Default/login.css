@@ -1,0 +1,38 @@
+﻿.login_form {
+    margin: 0px auto;
+    margin-top: 100px;
+    border: 1px solid gray;
+    width: 300px;
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: 2px 2px 2px #888888;
+}
+
+.error-container {
+    padding-bottom: 5px;
+    color: red;
+}
+
+.form-group > label {
+    color: black;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.error {
+    color: #d9534f;
+}
+
+.btn {
+    width: 100%;
+}
+
+.login_img {
+    margin: 0px auto;
+    margin-bottom: 10px;
+}
+
+#txtpassword {
+    margin: 10px 0px;
+}
+

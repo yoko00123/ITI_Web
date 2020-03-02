@@ -1,0 +1,129 @@
+<div class='ribbon' ng-init="Init()">
+    <span class='ribbon-button-alignment'><span class='btn btn-ribbon module-ribbon' ng-click='goPrevious()'><i class='fa fa-arrow-circle-left'></i></span></span>
+    <ol class='breadcrumb'>
+        <li>Profile</li>
+    </ol>
+</div>
+
+<div class='content' style="padding: 10px 20%;">
+    <div ng-form name='mainform' style="min-height:320px;">
+        <!--<div class='button-holder'>
+            <ol class='breadcrumb'>
+                <li>
+                    <button type='button' class='btn btn-primary' ng-click='Refresh()'><i class='fa fa-refresh'></i>Refresh</button>
+                </li>
+            </ol>
+        </div>-->
+        <div class='clear'></div>
+        <!--<div ng-model='tabs.activeTab' bs-tabs>
+            <div title='General' name='master_5011' ng-form bs-pane>-->
+        <div class='form_template form-horizontal'>
+            <fieldset>
+                <legend style="background-color:#ddd;border:none!important;text-align:center;font-size:14px;font-style:normal;box-shadow: none;font-family:lucida grande;font-weight: bold;letter-spacing: 2px;color:#2c3e50;">{{Master.Persona}}</legend>
+                <div class='col-sm-12'>
+                    <div id="flag2"></div>
+                    <div class="col-sm-8" style="padding-left: 50px!important;padding-top: 20px;"> 
+                        <div class='form-group' ng-class="{ 'has-error' : master_5011.Code.$invalid && mainform.$submitted }">
+                            <label class='control-label2  col-md-3 bold'>Code</label>
+                            <div class='col-md-9'>
+                                <span class='control-label' ng-bind-html='Master.Code | trustedHTML'></span>
+                            </div>
+                        </div> 
+                        <div class='form-group' ng-class="{ 'has-error' : master_5011.Company.$invalid && mainform.$submitted }">
+                            <label class='control-label2  col-md-3 bold'>Company</label>
+                            <div class='col-md-9'>
+                                <span class='control-label' ng-bind-html='Master.Company | trustedHTML'></span>
+                            </div>
+                        </div>
+                        <div class='form-group' ng-class="{ 'has-error' : master_5011.Department.$invalid && mainform.$submitted }">
+                            <label class='control-label2  col-md-3 bold'>Department</label>
+                            <div class='col-md-9'>
+                                <span class='control-label' ng-bind-html='Master.Department | trustedHTML'></span>
+                            </div>
+                        </div>
+                        <div class='form-group' ng-class="{ 'has-error' : master_5011.Designation.$invalid && mainform.$submitted }">
+                            <label class='control-label2  col-md-3 bold'>Position</label>
+                            <div class='col-md-9'>
+                                <span class='control-label' ng-bind-html='Master.Designation | trustedHTML'></span>
+                            </div>
+                        </div>
+                        <div class='form-group' ng-class="{ 'has-error' : master_5011.EmployeeStatus.$invalid && mainform.$submitted }">
+                            <label class='control-label2  col-md-3 bold'>Status</label>
+                            <div class='col-md-9'>
+                                <span class='control-label' ng-bind-html='Master.EmployeeStatus | trustedHTML'></span>
+                            </div>
+                        </div>
+                        <div class='form-group' ng-class="{ 'has-error' : master_5011.AccessNo.$invalid && mainform.$submitted }">
+                            <label class='control-label2  col-md-3 bold'>Access No</label>
+                            <div class='col-md-9'>
+                                <span class='control-label' ng-bind-html='Master.AccessNo | trustedHTML'></span>
+                            </div>
+                        </div>
+						<div class='form-group' ng-class="{ 'has-error' : master_5011.EmailAddress.$invalid && mainform.$submitted }">
+                            <label class='control-label2  col-md-3 bold'>Email Address</label>
+                            <div class='col-md-9'>
+                                <span class='control-label' ng-bind-html='Master.EmailAddress | trustedHTML'></span>
+                            </div>
+                        </div> 
+                        <div class='form-group' ng-class="{ 'has-error' : master_5011.StartDate.$invalid && mainform.$submitted }">
+                            <label class='control-label2  col-md-3 bold'>Start Date</label>
+                            <div class='col-md-9'>
+                                <label class="control-label">{{Master.StartDate | date : 'MM/dd/yyyy'}}</label>
+                            </div>
+                        </div>
+                        <!--<div class='form-group' ng-class="{ 'has-error' : master_5011.RegularizationDate.$invalid && mainform.$submitted }">
+                            <label class='control-label2  col-md-2 bold'>Regularization Date</label>
+                            <div class='col-md-10'>
+                                <label class="control-label">{{Master.RegularizationDate | date : 'MM/dd/yyyy'}}</label>
+                            </div>
+                         </div>-->
+                    </div>
+                    <div class="col-sm-4">
+                        <div id="EmployeeImage" style="height: 210px;position: absolute;right:10px;top:-10px;">
+                            <img id="Img1" image-exist ng-src='Upload/{{Master.IONS_Image}}' class="employee-pic" style="border-radius:inherit!important;"/>
+                            <div class="uploadButtons">
+                                <img class="uploadPhoto" src="Resources/System/uploadPhoto.png" style="display:none;" title="Upload image" ng-click="toggleUploadFile()" />
+                                <img class="savePhoto" src="Resources/System/saveUpload.png" style="display:none;" title="Save image" ng-click="saveUploadFile()" />
+                                <img class="cancelPhoto" src="Resources/System/cancelUpload.png" style="display:none;" title="Revert image" ng-click="cancelUploadFile()" />
+                                <input type='file' id="ImageFile" style="display:none;" name='ImageFile' file-input ng-file-select='onFileSelect($files, $event) ' onclick='this.value = null' ng-model='Master.ImageFile' />
+                            </div>
+                        </div>
+                    </div> 
+                </div> 
+            </fieldset>
+            <div class="row" style="margin: 0px;margin-top: 40px;">
+                <div class="col-md-12">
+                    <div class="col-md-3" ng-repeat="app in Approvers">
+                        <img image-exist ng-src='Upload/{{app.ImageFile}}' class="img-approver" />
+                        <p class="approver-name"><span>{{app.Name}}</span></p>
+                        <p class="approver-lvl"><span>{{app.ApprovalLevel}}</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+</div>
+<style>
+    .employee-pic {
+        height: 210px;
+        width: 210px;
+        background-size: cover;
+        float: right;
+        margin-right: 20px;
+        margin-top: 10px;
+    }
+
+    .profile-footer {
+        position: absolute;
+        bottom: 0;
+        height: 32px;
+        width: 100%;
+        background-color: #2786a2;
+        box-shadow: 3px 4px 15px #888;
+    }
+
+    .uploadButtons {
+        position: relative;
+        left: 143px;
+    }
+</style>

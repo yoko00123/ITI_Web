@@ -1,0 +1,76 @@
+﻿<div class="modal-header dialog-header-confirm">
+	<div class="modal-title">
+		<p><i class="fa fa-file-text-o"></i> Column Selection</p>
+        <div class="btn-group">
+            <button type="button" class="btn btn-default" ng-click="checkAll()"><i class="fa" ng-class="{ 'fa-square-o' : !check , 'fa-check' : check }"></i> Select All</button>
+            <button type="button" class="btn btn-default" ng-click="Load()"><i class="fa fa-refresh"></i> Load</button>
+            <button type="button" class="btn btn-default" ng-click="Cancel()"><i class="fa fa-times"></i> Cancel</button>
+        </div>
+	</div>
+</div>
+	
+<div class="modal-body">
+    <div direction="vertical" m-scrollbar m-scrollbar-height="200">
+        <div class="col-md-12 column-selection"  id="column-selection" ng-model="columns">
+            <!--<div class="col-md-12 column-selection-row">
+                <div class="col-md-2 padding-12">
+                     <i style="cursor:pointer;" class="fa" ng-class="{ 'fa-square-o' : !check , 'fa-check' : check }" ng-click="checkAll()"></i>
+                </div>
+                <div class="col-md-6 padding-12">
+                    Select Column
+                </div>
+            </div>-->
+
+            <div class="col-md-12 column-selection-row" ng-repeat="column in columns" ng-click="column.visible = !column.visible" >
+                <div as-sortable-item-handle>
+                    <div class="col-md-2 padding-12">
+                        <i style="cursor:pointer;" class="fa" ng-class="{ 'fa-square-o' : !column.visible , 'fa-check' : column.visible }"></i>
+                    </div>
+                    <div class="col-md-6 padding-12">{{column.Label || column.Name}}</div>
+                   <!-- <div class="col-md-4">
+                        <input class="form-control" type="text" ng-model="column.GroupSeqNo" name="GroupSeqNo" />
+                   
+                    </div>-->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .modal-header {
+        padding: 5px 10px;
+        background-color: #f5f5f5!important;
+        border: none;
+        height: 40px;
+    }
+    .modal-title {
+        font-size: 14px!important;
+        color: #444;
+    }
+    .modal-title p {
+        position: absolute;
+        top: 10px;
+        margin: 0px;
+    }
+    .modal-title .btn-group {
+        float: right;
+        top: -5px;
+    }
+    .modal-title .btn-group button {
+        border-radius: 0px;
+        background-color: transparent;
+        box-shadow: none;
+    }
+    .modal-title .btn-group button:hover {
+        background-color: rgba(0,0,0,.1)!important;
+    }
+    .column-selection { overflow-x: hidden;}
+    .column-selection-row { height: 42px;background-color:transparent;border-bottom: 1px solid #ccc; }
+    .column-selection .column-selection-row div:nth-child(1),
+    .column-selection .column-selection-row div:nth-child(2) {
+    }
+    .column-selection .column-selection-row div:nth-child(3) { padding:5px; }
+    .padding-12 { padding: 12px!important; }
+</style>

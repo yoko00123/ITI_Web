@@ -1,0 +1,32 @@
+﻿<div class="modal-header"> 
+               <h4 class="modal-title"> 
+                   <span class="fa fa-List"></span> {{detailedlookupdata.name}} 
+               </h4> 
+           </div> 
+           <div id="lookupContainer" style="height:500px;overflow:auto;" class="modal-body"> 
+                <table align="center" class="lookupgrid table table-striped table-condensed table-hover" width="100%"> 
+                    <thead> 
+                        <th style="max-width:30px;"><input ng-click="checkAll($event)" type="checkbox" /></th>
+                        <th style="font-weight:bold!important;" ng-repeat="title in detailedlookupdata.col">{{title}}</th> 
+                    </thead> 
+                    <tbody> 
+                        <tr ng-repeat="l in detailedlookupdata.data"> 
+                            <td style="max-width:30px;">
+                                <input ng-model="l.selected" ng-click="getVal(l.ID)" id="cbox_{{l.ID}}" type="checkbox" />
+                            </td>
+                            <td ng-repeat="t in detailedlookupdata.col">
+                                <div ng-if="t.toLowerCase().indexOf('time') == -1 && t.toLowerCase().indexOf('date') == -1">{{l[t]}}</div>
+                                <div ng-if="t.toLowerCase().indexOf('date') > -1 && t.toLowerCase().indexOf('time') == -1">{{l[t] | date : 'MM/dd/yyyy'}}</div>
+                                <div ng-if="t.toLowerCase().indexOf('time') > -1 && t.toLowerCase().indexOf('date') == -1">{{l[t] | date : 'hh:mm a'}}</div>
+                            </td>
+                                <!--<td ng-repeat="t in detailedlookupdata.col">{{l[t]}}</td>--> 
+                        </tr> 
+                        <tr ng-if="detailedlookupdata.data.length == 0">
+                            <td colspan="{{detailedlookupdata.col.length}}" style="text-align:center;background-color:#ddd;font-size:16px;"><i>No record found.</i></td>
+                        </tr>
+                    </tbody> 
+                </table> 
+             </div> 
+            <div class="modal-footer"> 
+               <button type="button" class="btn btn-default" ng-click="cancel()">Close</button> 
+            </div>

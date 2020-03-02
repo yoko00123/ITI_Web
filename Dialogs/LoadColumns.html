@@ -1,0 +1,32 @@
+﻿<div class="modal-header dialog-header-confirm">
+	<h4 class="modal-title">
+		<span class="fa fa-file-text-o"></span> Columns
+	</h4>
+</div>
+	
+<div class="modal-body">
+    <div class="button-holder">
+        <ol class="breadcrumb">
+            <li><button type="button" class="btn btn-default" ng-click="Load()">Load</button></li>
+            <li><button type="button" class="btn btn-default" ng-click="Cancel()">Cancel</button></li>
+        </ol>
+    </div>
+    <div over-scroll direction="vertical" style="height:200px;">
+        <table class="table table-hovered table-bordered">
+            <tr>
+                <td style="width:30px;">
+                    <input type="checkbox" name="check" ng-model="check" ng-click="checkAll()" />
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr ng-repeat="column in columns | filterColumns:colException" ng-click="column.visible = !column.visible" >
+                <td>
+					<i class="fa" ng-class="{ 'fa-square-o' : !column.visible , 'fa-check' : column.visible }"></i>
+                </td>
+                <td>{{column.displayName || column.field}}</td>
+            </tr>
+
+        </table>
+    </div>
+</div>
+

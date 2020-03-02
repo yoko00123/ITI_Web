@@ -1,0 +1,30 @@
+﻿<div class="modal-header">
+    <button type="button" ng-click="close()" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="modal-title">
+        <span class="fa fa-List"></span>Secret Question
+    </h4>
+</div>
+<form name="Master.mainform" novalidate>
+    <div ng-form name="x">
+    <div style="height:180px;" class="modal-body">
+        <div class="col-md-12" ng-class="{ 'has-error' : x.ID_SecurityQuestion.$invalid && Master.IsSubmitted }">
+            <label class="col-md-12">Security Question<span class='required'> *</span></label>
+            <select class="form-control" name="ID_SecurityQuestion" ng-model="Master.ID_SecurityQuestion" required="required">
+                <option value="" selected>-Select One-</option>
+                <option ng-repeat="d in cList" value="{{d.ID}}">{{d.Name}}</option>
+            </select>
+            <div class='note note-error' ng-show='x.ID_SecurityQuestion.$error.required && Master.IsSubmitted'>Security Question is required.</div>
+        </div>
+        <div class="col-md-12">&nbsp;</div>
+        <div class="col-md-12" ng-class="{ 'has-error' : x.SecurityAnswer.$invalid && Master.IsSubmitted }">
+            <label class="col-md-12">Security Answer<span class='required'> *</span></label>
+            <input class="form-control" ng-model="Master.SecurityAnswer" type="text" name="SecurityAnswer" required="required" placeholder="Security Answer" />
+            <div class='note note-error' ng-show='x.SecurityAnswer.$error.required && Master.IsSubmitted'>Security Answer is required.</div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class='note note-error' style="float: left;margin-left: 8px;font-size: 14px;color: #b94a48;" ng-show='!Master.mainform.$valid && Master.IsSubmitted'>Fill all required fields.</div>
+        <button type="button" class="btn btn-primary" ng-click="save()">Save</button>
+    </div>
+    </div>
+</form>

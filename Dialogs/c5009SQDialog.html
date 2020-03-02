@@ -1,0 +1,62 @@
+<div class="modal-header">
+    <h4 class="modal-title">
+        <span class="fa fa-file"></span> {{Title}}
+    </h4>
+</div>
+<div ng-form name="general.mainform" novalidate class="modal-body clearfix" style="max-height: 1200px;">
+
+    <div class="form_template form-horizontal" ng-class="{'has-error' : general.mainform.txtSecretQuestion.$invalid && general.mainform.$submitted}">
+		<div class="form-group col-md-12">
+			<label class="control-label col-md-4 bold">Security Question <span class="required">*</span></label>
+			<div class="col-md-8">
+				<select name="txtSecretQuestion" ng-options="item.ID as item.Name for item in SecretQuestion" required="required" class="form-control" ng-model="Data.ID_SecretQuestion">
+                    <option value="">Select one</option>
+				</select>
+                <div class="note note-error" ng-show="general.mainform.txtSecretQuestion.$error.required && general.mainform.$submitted">Security Question is required.</div>
+			</div>
+		</div>
+    </div>
+    <div class="form_template form-horizontal">
+		<div class="form-group col-md-12" ng-class="{'has-error' : general.mainform.txtSecretAnswer.$invalid && general.mainform.$submitted}">
+			<label class="control-label col-md-4 bold">Secret Answer <span class="required">*</span></label>
+			<div class="col-md-8">
+				<input type="password" name="txtSecretAnswer" placeholder="Secret Answer" class="form-control" ng-model="Data.SecretAnswer" required="required" />
+                <div class="note note-error" ng-show="general.mainform.txtSecretAnswer.$error.required && general.mainform.$submitted">Secret Answer is required.</div>
+			</div>
+		</div>
+	</div>
+
+    <div class="form_template form-horizontal" ng-class="{'has-error' : general.mainform.txtNewSecretQuestion.$invalid && general.mainform.$submitted}">
+		<div class="form-group col-md-12">
+			<label class="control-label col-md-4 bold">New Security Question <span class="required">*</span></label>
+			<div class="col-md-8">
+				<select name="txtNewSecretQuestion" ng-options="item.ID as item.Name for item in SecretQuestion" required="required" class="form-control" ng-model="Data.NewID_SecretQuestion">
+                    <option value="">Select one</option>
+				</select>
+                <div class="note note-error" ng-show="general.mainform.txtNewSecretQuestion.$error.required && general.mainform.$submitted">New Security Question is required.</div>
+			</div>
+		</div>
+    </div>
+    <div class="form_template form-horizontal">
+		<div class="form-group col-md-12" ng-class="{'has-error' : general.mainform.txtNewSecretAnswer.$invalid && general.mainform.$submitted}">
+			<label class="control-label col-md-4 bold">New Secret Answer <span class="required">*</span></label>
+			<div class="col-md-8">
+				<input type="password" name="txtNewSecretAnswer" placeholder="Secret Answer" class="form-control" ng-model="Data.NewSecretAnswer" required="required" />
+                <div class="note note-error" ng-show="general.mainform.txtNewSecretAnswer.$error.required && general.mainform.$submitted">New Secret Answer is required.</div>
+			</div>
+		</div>
+	</div>
+<!--	<div class="form_template form-horizontal">
+		<div class="form-group col-md-12">
+			<label class="control-label col-md-3 bold">Confirm Password</label>
+			<div class="col-md-9">
+				<input type="password" name="ConfirmPassword" placeholder="Confirm Password" class="form-control" ng-model="Data.ConfirmPassword" />
+			</div>
+		</div>
+    </div>-->
+</div>
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" ng-click="cancel()">Close</button>
+    <button type="button" class="btn btn-primary" ng-click="save()">Change Security Question</button>
+</div>

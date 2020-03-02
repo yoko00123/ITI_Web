@@ -1,0 +1,38 @@
+﻿<div class="modal-header">
+    <h4 class="modal-title">
+        <span class="fa fa-file-text-o"></span> Resign Employee
+    </h4>
+</div>
+<div class="modal-body">
+    <form name="nameDialog" novalidate role="form">
+		<div class='form-group clearfix'>
+            <label class='control-label2 col-md-2 bold'>Name</label>
+            <div class='col-md-10'>
+                <span class='bold'>{{Data.Name}}</span>
+            </div>
+        </div>
+		<div class='form-group clearfix'>
+            <label class='control-label2 col-md-2 bold'>Code</label>
+            <div class='col-md-10'>
+                <span class='bold'>{{Data.Code}}</span>
+            </div>
+        </div>
+		<div class='form-group clearfix'>
+            <label class='control-label2 col-md-2 bold'>Status<span class='required'>* </span></label>
+            <div class='col-md-10'>
+                    <select name="ID_EmployeeStatus" ng-options="item.ID as item.Name for item in source" required class="form-control" ng-model="Data.ID_EmployeeStatus">
+                    </select>
+            </div>
+        </div>
+        <div class="form-group input-group-lg clearfix">
+			<label class='control-label2 col-md-2 bold'>Remarks</label>
+			<div class='col-md-10'>
+				<textarea id="Comment" name="Comment" ng-model="Data.Comment" style="height:100px;" class="form-control"></textarea>
+			</div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" ng-click="cancel()">Cancel</button>
+    <button type="button" class="btn btn-primary" ng-click="save()" ng-disabled="(nameDialog.$dirty && nameDialog.$invalid) || nameDialog.$pristine">Continue</button>
+</div>

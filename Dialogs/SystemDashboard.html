@@ -1,0 +1,27 @@
+﻿ <div class="modal-header">
+	<h4 class="modal-title">
+		<span class="fa fa-file-text-o"></span> System Dashboard
+        <div style="float:right;">
+            <button type="button" class="btn btn-default" ng-click="cancel()">Close</button>
+        </div>
+	</h4>
+</div>
+<div class="modal-body" style="overflow:scroll!important;">
+    <div style="height:500px;">
+        <div class="col-sm-3">
+            <div class="row">
+                <h3>CPU {{currentCPU}}%</h3>
+                <canvas chart-line class="chart" data="cpuData" bezier-curve="true"  labels="cpuLabels" legend="true"></canvas>
+            </div>
+            <div class="row">
+                <h3>MEMORY {{currentMemory}} %</h3>
+                <canvas chart-line class="chart" data="memoryData" labels="memoryLabels" legend="true"></canvas>
+            </div>
+            <div class="row">
+                <h3>DISK {{currentDisk}} %</h3>
+                <canvas chart-line class="chart" data="diskData" labels="diskLabels" legend="true"></canvas>
+            </div>
+        </div>
+    </div>
+	  
+</div>

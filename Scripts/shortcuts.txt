@@ -1,0 +1,46 @@
+SHORTCUTS
+	LEGENDS
+	**VARIABLES
+	
+	SHORTCUTS
+	--app.js
+		A 	- 	app
+		q 	- 	$q
+		R 	- 	$rootScope
+		d 	- 	dependencies**
+		c 	- 	controllerBase
+		v 	- 	viewBase
+		d 	- 	dataService
+		rD	- 	resolveDependencies
+		
+	--directives.js
+		c 	- 	$compile
+		s 	- 	$scope
+		E 	- 	iElement
+		A 	- 	iAttrs
+		q 	- 	$q
+		t	-	$timeout
+		w	- 	$window
+		S	-	$states
+		d	-	dataService
+		g	-	growlNotifications
+		$d	-	$document
+		R	-	$rootScope
+		i	-	$interval
+		$t	-	$tooltip
+		Sp	-   $stateParams
+		T	-	$templateCache
+
+	--services.js
+		h	- 	$http
+		q	-	$q
+		
+		
+	--controllers
+		s - $scope
+		r - resources
+		d - dataService
+		u - utilService
+		
+	
+		

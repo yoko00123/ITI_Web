@@ -1,0 +1,62 @@
+<div class='ribbon' ng-init="Init()">
+    <span class='ribbon-button-alignment'><span><i class='fa fa-list-alt' style='margin-right:5px; font-size:18px'></i></span></span>
+    <ol class='breadcrumb'>
+        <li>MyApproval</li>
+    </ol>
+</div>
+<div class='content' style="margin-top: 35px;">
+    <div class='tab_container'>
+        <div title='My Approvals'>
+            <nav class='navbar navbar-right navbar-button-holder col-sm-12 nav-btn'>
+                <div>
+                    <button type='button' class='btn btn-primary navbar-btn hidden-xs' style="background-color:#3498db!important;margin-left:10px;" ng-if="FilingType.length !== 0"  ng-click='SelectAllFT()'><i class='fa fa-toggle-on'></i>{{NameSelectAll}}</button>
+                    <form class='navbar-form navbar-right' style="margin-right:0px;">
+                        <!--<div class='input-group navbar-btn'><input type="text" name="SearchAll" placeholder='Search all columns' class="form-control" ng-if="FilingType.length !== 0" ng-model="filter[8070].SearchAll" ng-enter="Search(8070, 1)" />
+                        <span class='input-group-addon' ng-if="FilingType.length !== 0" mtype='3' ng-click='Search(8070, 1)'><i class='fa fa-search'></i></span></div>-->
+                        <button type='button' class='btn btn-primary navbar-btn hidden-xs' style="background-color:#34495e!important;" ng-if="FilingType.length !== 0" ng-click='BApprove(0)'><i class='fa fa-thumbs-o-up'></i>Batch Approve</button>
+                        <button type='button' class='btn btn-primary navbar-btn hidden-xs' style="background-color:#e74c3c!important;" ng-if="FilingType.length !== 0" ng-click='BApprove(1)'><i class='fa fa-thumbs-o-down'></i>Batch Disapprove</button>
+                        <button type='button' class='btn btn-primary navbar-btn hidden-xs refreshbg' ng-click='Refresh()'><i class='fa fa-refresh'></i>Refresh</button>
+                    </form>
+                </div>
+            </nav>
+            <div class='clear'></div>
+            <div class="m-grid-container">
+                <div class="m-grid-header" ng-repeat="ft in FilingType" ng-if="FilingType.length !== 0">
+                    <div>
+                        <p class="detail-head">{{ft.Name}}</p>
+                        <div class="detail-tbl-container table-responsive" style="overflow:auto;">
+
+                            <table id="table" class="table table-hover" style="">
+                                <thead>
+                                    <tr>
+                                        <th style="max-width:25px!important;">
+                                            <input ng-if="ft.ID != 1" id="gridmbox{{ft.ID}}" style="float:left;width:15px;height:15px;" type="checkbox" class="grid-selector" ng-click="SelectAll(ft.ID)" /><span></span>
+                                            <!--<input id="gridmbox{{ft.ID}}" style="float:left;width:15px;height:15px;" type="checkbox" class="grid-selector" ng-click="SelectAll(ft.ID)" /><span></span>-->
+                                        </th>
+                                        <th></th>
+                                        <th ng-repeat="col in gridOptions[8070].columnDefs">{{col.displayName}}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="item in gridData[8070]  | filter: FilingFilter(ft.ID)">
+                                        <td style="max-width:25px!important;">
+                                            <label>
+                                                <input ng-if="ft.ID != 1" style="float:left;" type="checkbox" class="grid-selector gridcbox{{item.ID_Name}}" ng-click="SelectToggle(item.ID,ft.ID)" /><span></span>
+                                                <!--<input style="float:left;" type="checkbox" class="grid-selector gridcbox{{item.ID_Name}}" ng-click="SelectToggle(item.ID,ft.ID)" /><span></span>-->
+                                            </label>
+                                        </td>
+                                        <td><a href="#/{{item.WebMenuApproval.split(' ').join('-')}}/{{item.$$rID}}?m=8071"><i class="fa fa-folder"></i></a></td>
+                                        <td ng-repeat="col in gridOptions[8070].columnDefs">{{ item[col.field] }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="m-grid-header" ng-if="FilingType.length === 0" style="text-align:center;">
+                    <i style="color: #777;font-size: 14px;font-weight: bold;">No Pending Approvals</i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,525 @@
+﻿body {
+    overflow: hidden;
+}
+.modal-content {
+    border: 2px solid #2786a2 !important;
+}
+
+legend {
+    background-color: #2786a2;
+    text-align: center;
+    box-shadow: 3px 4px 15px #888;
+    font-family: 'Lucida Sans' !important;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #fff;
+    border: 2px solid#2786a2 !important;
+}
+.WidgetDropDown {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    background-color: #FFF;
+    border-radius: 0px;
+    box-shadow: 3px 4px 15px #888;
+}
+.WidgetItem{
+    text-align: center;
+    margin: 0px;
+    padding: 10px;
+    background-color: #2c3e50;
+    color: #fff;
+    border-bottom: 1px solid #fff;
+}
+.profile-detail {
+    text-align: left;
+    display: flex;
+}
+.calndar .modal-content {
+    border: none !important;
+}
+
+    .calndar .modal-content > div {
+        border: 6px solid #2786a2 !important;
+    }
+
+.fixed-navigation nav {
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
+    height: 100%;
+}
+
+    .fixed-navigation nav > ul {
+        padding-right: 15px;
+        position: relative;
+        height: 100%;
+        width: 114%;
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+
+.mobile-detected.fixed-navigation nav > ul {
+    padding-right: 30px !important;
+}
+
+.minified.fixed-navigation nav {
+    -webkit-overflow-scrolling: none;
+    overflow: visible;
+    height: auto;
+    padding-bottom: 0;
+}
+
+    .minified.fixed-navigation nav > ul {
+        overflow: visible;
+        padding-right: 0;
+        width: 100%;
+    }
+
+nav ul li a:active {
+    background: #616161 !important;
+}
+
+nav ul {
+    width: 100%;
+    padding: 40px 28px 25px 0;
+    padding: 0;
+    margin: 0;
+    font-size: 13px;
+    line-height: .5em;
+    list-style: none;
+    position: relative;
+}
+
+    nav ul .active > a {
+        color: #fff !important;
+        position: relative;
+    }
+
+    nav ul li.active > a:before {
+        content: "\f0d9";
+        font-family: FontAwesome;
+        display: block;
+        height: 27px;
+        line-height: normal;
+        width: 27px;
+        position: absolute;
+        right: -21px;
+        font-size: 20px;
+        color: #eee;
+    }
+
+    nav ul li.active.open > a:before {
+        content: '';
+    }
+
+nav > ul > li:last-child.open {
+    border-bottom: 1px solid rgba(255, 255, 255, .15);
+}
+
+nav ul li {
+    overflow: hidden;
+}
+
+    nav ul li a {
+        line-height: normal;
+        font-size: 14px;
+        padding: 10px 10px 10px 11px;
+        color: #a8a8a8;
+        display: block;
+        font-weight: 400;
+        text-decoration: none !important;
+        position: relative;
+    }
+
+nav > ul > li > ul > li > a,
+nav > ul > li > ul > li > ul > li > a {
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+nav ul li a:focus {
+    color: #c9c9c9;
+}
+
+nav ul li a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav ul b {
+    float: right;
+    font-size: 11px;
+    margin-top: 2px;
+}
+
+nav ul span.menu-item-parent {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li.open > a,
+nav ul li.open > a b {
+    color: #fff !important;
+}
+
+nav > ul > li > a b {
+    position: absolute !important;
+    right: 10px;
+    top: 10px;
+}
+
+nav > ul > li > a > i {
+    margin-right: 5px;
+    width: 15px;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+}
+
+    nav > ul > li > a > i > em {
+        font-size: 9px;
+        display: block;
+        padding: 2px;
+        position: absolute;
+        top: -8px;
+        right: -6px;
+        text-decoration: none;
+        font-style: normal;
+        background: #ED1C24;
+        color: #fff;
+        min-width: 13px;
+        border-radius: 50%;
+        max-height: 13px;
+        line-height: 8px;
+        font-weight: 700;
+        vertical-align: baseline;
+        white-space: nowrap;
+        text-align: center;
+        border: 1px solid rgba(255, 255, 255, .1);
+    }
+
+nav ul li li {
+    border-bottom: none;
+    position: relative;
+}
+
+nav > ul > li > ul::before {
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: 1;
+    left: 23px;
+    top: 0;
+    bottom: 0;
+    border-left: 1px solid #7A7A7A;
+}
+
+nav > ul ul li::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 8px;
+    left: 23px;
+    top: 16px;
+    border-top: 1px solid #7A7A7A;
+    z-index: 1;
+}
+
+nav > ul ul ul li::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 18px;
+    left: 10px;
+    top: 17px;
+    border-top: 1px solid transparent;
+}
+
+nav > ul ul li a i {
+    font-size: 14px !important;
+    width: 18px !important;
+    text-align: center !important;
+    vertical-align: 0 !important;
+    line-height: 1 !important;
+}
+
+nav > ul > li:hover > ul::before,
+nav > ul > li:hover > ul > li::before {
+    border-color: #ACACAC !important;
+}
+
+nav ul ul {
+    margin: 0;
+    display: none;
+    background: rgba(69, 69, 69, .6);
+    padding: 7px 0;
+}
+
+    nav ul ul ul {
+        background: 0 0;
+        padding: 0;
+    }
+
+    nav ul ul li {
+        margin: 0;
+        padding: 0;
+    }
+
+        nav ul ul li > a {
+            padding-left: 42px;
+            font-size: 14px;
+            font-weight: 400;
+            outline: 0;
+        }
+
+            nav ul ul li > a:hover {
+                background-color: rgba(69, 69, 69, .8);
+                color: #fff;
+            }
+
+    nav ul ul ul li a {
+        color: #bfbfbf;
+        padding: 8px 10px 8px 60px;
+        font-size: 14px;
+    }
+
+        nav ul ul ul li a:hover {
+            background-color: #4C4F53;
+            color: #fff;
+        }
+
+    nav ul ul ul ul li a {
+        padding-left: 80px;
+    }
+
+    nav ul ul ul ul ul li a {
+        padding-left: 100px;
+    }
+
+    nav ul ul ul ul ul ul li a {
+        padding-left: 120px;
+    }
+
+    nav ul ul b {
+        color: #B3B3B3;
+    }
+
+    nav ul ul > li:hover b {
+        color: #D5D9E2;
+    }
+
+.menu-on-top #main {
+    margin-top: 34px !important;
+    background-color: #f5f5f5;
+}
+
+.yearcalendar, .monthcalendar, .employeecalendar {
+    background-color: #2786a2 !important;
+    color: #fff;
+    height: 25px;
+    position: relative;
+    top: -3px;
+}
+
+.calendar-btn-grp .sidebuttoncalendar {
+    background-color: #3498db !important;
+    color: #fff !important;
+}
+
+.calendar-btn-grp .todaycalendar {
+    background-color: #f1c40f !important;
+    color: #fff !important;
+}
+
+.calendar-btn-grp .sidebuttoncalendar:hover {
+    border: 1px solid #3498db;
+    background-color: #3498db !important;
+    color: #fff !important;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ecf0f1', endColorstr='#ededed',GradientType=1 );
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+.calendar-btn-grp .todaycalendar:hover {
+    border: 1px solid #f1c40f;
+    background-color: #f1c40f !important;
+    color: #fff !important;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ecf0f1', endColorstr='#ededed',GradientType=1 );
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+.calendar-select-grp {
+    height: 40px;
+    background-color: #eee;
+    margin-top: 10px;
+}
+
+    .calendar-select-grp select {
+        margin-top: 10px;
+        margin-left: 5px;
+        background-color: transparent;
+        border: none;
+    }
+
+.calendar-btn-grp {
+    float: right;
+    top: 5px;
+    right: 5px;
+}
+
+    .calendar-btn-grp button {
+        background-color: transparent !important;
+        box-shadow: none;
+        color: #444 !important;
+    }
+
+    .calendar-btn-grp .close_calButton {
+        vertical-align: middle;
+        float: right;
+        border: none;
+        padding-top: 7px;
+        color: #888 !important;
+    }
+
+        .calendar-btn-grp .close_calButton:hover {
+            background-color: transparent !important;
+        }
+
+    .calendar-btn-grp button:hover {
+        background-color: rgba(0,0,0,.1) !important;
+    }
+
+.calndar .modal-dialog {
+    width: 85%;
+}
+
+.lookupgrid > tbody > tr > td,
+.lookupgrid > tbody > tr > th,
+.lookupgrid > tfoot > tr > td,
+.lookupgrid > tfoot > tr > th,
+.lookupgrid > thead > tr > td,
+.lookupgrid > thead > tr > th {
+    border-top: none;
+}
+
+.table-hover > tbody > tr:hover > td,
+.table-hover > tbody > tr:hover > th {
+    background-color: #ddd;
+}
+
+.datepicker.dropdown-menu {
+    padding: 0px;
+    border: none;
+}
+
+    .datepicker.dropdown-menu thead {
+        background-color: #eee;
+    }
+
+        .datepicker.dropdown-menu thead th button {
+            background-color: transparent;
+            box-shadow: none;
+            color: #555;
+        }
+
+        .datepicker.dropdown-menu thead th.dow {
+            height: 25px;
+        }
+
+    .datepicker.dropdown-menu tbody td button {
+        background-color: transparent;
+        box-shadow: none;
+        color: #555;
+    }
+
+.timepicker.dropdown-menu {
+    padding: 5px;
+}
+
+    .timepicker.dropdown-menu thead th button,
+    .timepicker.dropdown-menu tbody td button,
+    .timepicker.dropdown-menu tfoot th button {
+        background-color: transparent;
+        box-shadow: none;
+        color: #555;
+        width: 100%;
+    }
+
+    .timepicker.dropdown-menu tbody td button {
+        width: 40px !important;
+    }
+
+        .timepicker.dropdown-menu tbody td button.btn-primary {
+            background-color: #eee !important;
+            color: #555 !important;
+        }
+
+    .timepicker.dropdown-menu tbody tr:first-child td:last-child,
+    .timepicker.dropdown-menu tbody tr:last-child td:last-child {
+        display: none;
+    }
+
+.dialogs-default .modal-content {
+    border-radius: 0px;
+}
+
+.dialogs-default .modal-header {
+    padding: 10px;
+    background-color: #ddd !important;
+    border-bottom: none;
+    color: #555;
+}
+
+.dialogs-default .modal-title {
+    font-size: 14px;
+}
+
+.dialogs-default .modal-footer {
+    padding: 10px;
+    border-top: none;
+    background-color: #f5f5f5;
+}
+
+    .dialogs-default .modal-footer button {
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+        .dialogs-default .modal-footer button.btn-primary {
+            background-color: #ccc;
+            color: #555;
+            box-shadow: none;
+        }
+
+.kc-icon {
+    font-size: 20px;
+    position: relative;
+    bottom: 3px;
+    left: 2px;
+}
+
+button.kc_fab_main_btn,
+.sub_fab_btns_wrapper .sub_fab_btn {
+    background-color: #2786a2 !important;
+}
+
+.advance-filter {
+    background-color: #2980b9;
+    color: #fff;
+    border-radius: 0px;
+    padding: 5px 15px;
+}
+
+.nav-btn {
+    position: fixed;
+    top: 110px;
+    left: 0px;
+}

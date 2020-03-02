@@ -1,0 +1,413 @@
+<div class='ribbon' ng-init="Init()">
+    <span class='ribbon-button-alignment'><span><i class='fa fa-list-alt' style='margin-right:5px; font-size:18px'></i></span></span>
+    <ol class='breadcrumb'>
+        <li>Employee Info</li>
+    </ol>
+</div>
+<!--<div class='row' style='padding-top:15px;'>
+    <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12'>
+        <i class='fa fa-warning warning-ico'></i><i class='fa fa-cogs cogs-ico'></i><i class='fa fa-cog cog-ico fa-spin'></i>
+        <p class='txt-warning'>This page is under maintenance.</p>
+    </div>
+</div>-->
+
+<div class="ei-container">
+    <!--<div class="ei-quicklink">
+        <p>Quick link</p>
+        <ul>
+            <li><i class="fa fa-info"></i> Personal Information</li>
+            <li><i class="fa fa-suitcase"></i> Employment</li>
+            <li><i class="fa fa-id-card"></i> Identification</li>
+            <li><i class="fa fa-users"></i> Family</li>
+            <li><i class="fa fa-map-marker"></i> Address</li>
+            <li><i class="fa fa-users"></i> Dependents</li>   
+            <li><i class="fa fa-phone"></i> Emergency Contact</li>
+        </ul>
+    </div>-->
+    <div class="tab_container" style="margin: 10px 10%;">  <!--style="margin: 20px 10px 20px 290px;"-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-8 ei-left">
+                    <div id="flag"></div>
+                    <p class="ei-name">{{IsNull(Info.FirstName)}} {{IsNull(Info.LastName)}} <i class="fa fa-external-link-square" ng-if="EmployeeSource.length > 1" ng-click="ListEmployee()"></i></p>
+                    <p class="ei-position">{{IsNull(Info.Position)}}</p>
+                    <p class="ei-email"><i class="fa fa-envelope"></i> {{IsNull(Info.EmailAddress)}}</p>
+                    <p class="ei-contact"><i class="fa fa-phone"></i> {{IsNull(Info.ContactNo)}}</p>
+                </div>
+                <div class="col-md-4" style="text-align: right;">
+                    <img class="ei-pic" image-exist ng-src="Upload/{{Info.ImageFile}}" alt="Avatar">
+                </div>
+            </div>
+        </div>
+
+        <!--Personal Info-->
+        <div class="row" style="margin: 0px;">
+            <div class="col-md-12 ei">
+                <div class="ei-header">
+                    <i class="fa fa-info"></i>
+                    <p>Personal Information</p>
+                </div>
+                <!--COlumn 1-->
+                <div class="col-md-6">
+                    <div class="form-group ei-fg">
+                        <label class="col-md-2">Code</label>
+                        <div class="col-md-10">
+                            <span>{{IsNull(Info.Code)}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group ei-fg">
+                        <label class="col-md-2">Lastname</label>
+                        <div class="col-md-10">
+                            <span>{{IsNull(Info.LastName)}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group ei-fg">
+                        <label class="col-md-2">Firstname</label>
+                        <div class="col-md-10">
+                            <span>{{IsNull(Info.FirstName)}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group ei-fg">
+                        <label class="col-md-2">Middlename</label>
+                        <div class="col-md-10">
+                            <span>{{IsNull(Info.MiddleName)}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group ei-fg">
+                        <label class="col-md-2">Birthdate</label>
+                        <div class="col-md-10">
+                            <span>{{IsNull(Info.BirthDate,1)}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group ei-fg">
+                        <label class="col-md-2">Age</label>
+                        <div class="col-md-10">
+                            <span>{{IsNull(Info.Age)}}</span>
+                        </div>
+                    </div>
+                </div>
+                <!--COlumn 2-->
+                <div class="col-md-6">
+                    <div class="form-group ei-fg">
+                        <label class="col-md-2">Gender</label>
+                        <div class="col-md-10">
+                            <span>{{IsNull(Info.Gender)}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group ei-fg">
+                        <label class="col-md-2">Nationality</label>
+                        <div class="col-md-10">
+                            <span>{{IsNull(Info.Nationality)}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group ei-fg">
+                        <label class="col-md-2">Citizenship</label>
+                        <div class="col-md-10">
+                            <span>{{IsNull(Info.Citizenship)}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group ei-fg">
+                        <label class="col-md-2">Religion</label>
+                        <div class="col-md-10">
+                            <span>{{IsNull(Info.Religion)}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group ei-fg">
+                        <label class="col-md-2">Civil Status</label>
+                        <div class="col-md-10">
+                            <span>{{IsNull(Info.CivilStatus)}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group ei-fg">
+                        <label class="col-md-2">Weight</label>
+                        <div class="col-md-10">
+                            <span>{{IsNull(Info.Weight)}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group ei-fg">
+                        <label class="col-md-2">Height</label>
+                        <div class="col-md-10">
+                            <span>{{IsNull(Info.Height)}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Employment-->
+        <div class="row" style="margin: 0px;">
+            <div class="col-md-12 ei">
+                <div class="ei-header">
+                    <i class="fa fa-briefcase"></i>
+                    <p>Employment</p>
+                </div>
+                <!--COlumn 1-->
+                <div class="col-md-6">
+                    <div class="form-group ei-fg">
+                        <label class="col-md-2">Company</label>
+                        <div class="col-md-10">
+                            <span>{{IsNull(Info.Company)}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group ei-fg">
+                        <label class="col-md-2">Branch</label>
+                        <div class="col-md-10">
+                            <span>{{IsNull(Info.Branch)}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group ei-fg">
+                        <label class="col-md-2">Division</label>
+                        <div class="col-md-10">
+                            <span>{{IsNull(Info.Division)}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group ei-fg">
+                        <label class="col-md-2">Department</label>
+                        <div class="col-md-10">
+                            <span>{{IsNull(Info.Department)}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group ei-fg">
+                        <label class="col-md-2">Position Level</label>
+                        <div class="col-md-10">
+                            <span>{{IsNull(Info.PositionLevel)}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group ei-fg">
+                        <label class="col-md-2">Position</label>
+                        <div class="col-md-10">
+                            <span>{{IsNull(Info.Position)}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group ei-fg">
+                        <label class="col-md-2">Access No.</label>
+                        <div class="col-md-10">
+                            <span>{{IsNull(Info.AccessNo)}}</span>
+                        </div>
+                    </div>
+                </div>
+                <!--COlumn 2-->
+                <div class="col-md-6">
+                    <div class="form-group ei-fg">
+                        <label class="col-md-2">Employee Status</label>
+                        <div class="col-md-10">
+                            <span>{{IsNull(Info.EmployeeStatus)}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group ei-fg">
+                        <label class="col-md-2">Payroll Status</label>
+                        <div class="col-md-10">
+                            <span>{{IsNull(Info.PayrollStatus)}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group ei-fg">
+                        <label class="col-md-2">Tax Exemption</label>
+                        <div class="col-md-10">
+                            <span>{{IsNull(Info.TaxExemption)}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group ei-fg">
+                        <label class="col-md-2">Email Address</label>
+                        <div class="col-md-10">
+                            <span>{{IsNull(Info.EmailAddress)}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group ei-fg">
+                        <label class="col-md-2">Start date</label>
+                        <div class="col-md-10">
+                            <span>{{IsNull(Info.StartDate,1)}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group ei-fg">
+                        <label class="col-md-2">Regularization Date</label>
+                        <div class="col-md-10">
+                            <span>{{IsNull(Info.RegularizationDate,1)}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Identification-->
+        <div class="row" style="margin: 0px;">
+            <div class="col-md-12 ei">
+                <div class="ei-header">
+                    <i class="fa fa-id-card"></i>
+                    <p>Identification</p>
+                </div>
+                <!--COlumn 1-->
+                <div class="col-md-6">
+                    <div class="form-group ei-fg">
+                        <label class="col-md-2">SSS No.</label>
+                        <div class="col-md-10">
+                            <span>{{IsNull(Info.SSSNo)}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group ei-fg">
+                        <label class="col-md-2">HDMF No.</label>
+                        <div class="col-md-10">
+                            <span>{{IsNull(Info.HDMFNo)}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group ei-fg">
+                        <label class="col-md-2">PhilHealth No.</label>
+                        <div class="col-md-10">
+                            <span>{{IsNull(Info.PhilHealthNo)}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group ei-fg">
+                        <label class="col-md-2">TIN No.</label>
+                        <div class="col-md-10">
+                            <span>{{IsNull(Info.TIN)}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Family-->
+        <div class="row" style="margin: 0px;">
+            <div class="col-md-12 ei">
+                <div class="ei-header">
+                    <i class="fa fa-users"></i>
+                    <p>Family</p>
+                </div>
+                <!--COlumn 1-->
+                <div class="col-md-6">
+                    <div class="ei-subhead">Father</div>
+                    <div class="form-group ei-fg">
+                        <label class="col-md-2">Name</label>
+                        <div class="col-md-10">
+                            <span>{{IsNull(Info.Father)}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group ei-fg">
+                        <label class="col-md-2">Birthdate</label>
+                        <div class="col-md-10">
+                            <span>{{IsNull(Info.FatherBirthDate,1)}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group ei-fg">
+                        <label class="col-md-2">Occupation</label>
+                        <div class="col-md-10">
+                            <span>{{IsNull(Info.FatherOccupation)}}</span>
+                        </div>
+                    </div>
+
+                    <div class="ei-subhead">Mother</div>
+                    <div class="form-group ei-fg">
+                        <label class="col-md-2">Name</label>
+                        <div class="col-md-10">
+                            <span>{{IsNull(Info.Mother)}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group ei-fg">
+                        <label class="col-md-2">Birthdate</label>
+                        <div class="col-md-10">
+                            <span>{{IsNull(Info.MotherBirthDate,1)}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group ei-fg">
+                        <label class="col-md-2">Occupation</label>
+                        <div class="col-md-10">
+                            <span>{{IsNull(Info.MotherOccupation)}}</span>
+                        </div>
+                    </div>
+                </div>
+                <!--COlumn 2-->
+                <div class="col-md-6">
+                    <div class="ei-subhead">Spouse</div>
+                    <div class="form-group ei-fg">
+                        <label class="col-md-2">Name</label>
+                        <div class="col-md-10">
+                            <span>{{IsNull(Info.Spouse)}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group ei-fg">
+                        <label class="col-md-2">Birthdate</label>
+                        <div class="col-md-10">
+                            <span>{{IsNull(Info.SpouseBirthDate,1)}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group ei-fg">
+                        <label class="col-md-2">Occupation</label>
+                        <div class="col-md-10">
+                            <span>{{IsNull(Info.SpouseOccupation)}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Address-->
+        <div class="row" style="margin: 0px;">
+            <div class="col-md-12 ei">
+                <div class="ei-header">
+                    <i class="fa fa-map-marker"></i>
+                    <p>Address</p>
+                </div>
+                <div class="ei-table-container">
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th ng-repeat="col in PersonaAddress.Columns">{{AddSpace(col.ColumnName)}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="data in PersonaAddress.Rows">
+                                <td ng-repeat="col in PersonaAddress.Columns">{{data[col.ColumnName]}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!--Dependents-->
+        <div class="row" style="margin: 0px;">
+            <div class="col-md-12 ei">
+                <div class="ei-header">
+                    <i class="fa fa-users"></i>
+                    <p>Dependents</p>
+                </div>
+                <div class="ei-table-container">
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th ng-repeat="col in PersonaDependents.Columns">{{AddSpace(col.ColumnName)}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="data in PersonaDependents.Rows">
+                                <td ng-repeat="col in PersonaDependents.Columns">{{data[col.ColumnName]}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!--Emergency Contact-->
+        <div class="row" style="margin: 0px;">
+            <div class="col-md-12 ei ei-last">
+                <div class="ei-header">
+                    <i class="fa fa-phone"></i>
+                    <p>Emergency Contact</p>
+                </div>
+                <div class="ei-table-container">
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th ng-repeat="col in PersonaEmergencyContact.Columns">{{AddSpace(col.ColumnName)}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="data in PersonaEmergencyContact.Rows">
+                                <td ng-repeat="col in PersonaEmergencyContact.Columns">{{data[col.ColumnName]}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

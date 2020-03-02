@@ -1,0 +1,343 @@
+<style>
+	.breadcrumb>li {
+		float: none;
+	}
+	.content {
+		padding: 0px;
+	}
+	.ribbon .breadcrumb>li+li:before {
+		  content: " ";
+	}
+	.btn.btn-ribbon {
+		background-color: transparent!important;
+		background-image: none;
+		color: #4A4A4A;
+		margin: 0;
+		line-height: 25px;
+		height: 25px;
+	}
+	.btn.btn-ribbon i {
+		margin-right: 5px;
+	}
+	.btn.active, .btn:active {
+		-webkit-box-shadow: inset 0 3px 5px rgba(0,0,0,.125);
+		box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+	}
+	.btn {
+		 box-shadow: inset 0 -2px 0 rgba(0,0,0,.125);
+		-moz-box-shadow: inset 0 -2px 0 rgba(0,0,0,.125);
+		-webkit-box-shadow: inset 0 -2px 0 rgba(0,0,0,.125);
+	}
+	.button-holder {
+		background-color: transparent!important;
+	}
+	.breadcrumb>li {
+		margin: 0;
+	}
+	.well {
+		border: none;
+		border-radius: 0px;
+		background-color: transparent!important;
+		padding-top: 10px!important;
+	}
+	.left-panel {
+		padding: 0px!important;
+	}
+	.profile {
+		padding: 10px;
+		margin-bottom: 10px;
+		background-color: #F8F8F8;
+		border: 1px solid #e3e3e3;
+		-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+		box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+	}
+	.profile div {
+		text-align: center;
+	}
+	.list-group {
+		margin-bottom: 0px;
+	}
+	
+	.maincontainer {
+        border: 1px solid rgb(240, 240, 240);
+        padding: 5px;
+		background-color: #F8F8F8;
+    }
+    .container {
+        display: table;
+        width: 99%;
+        border-collapse: collapse;
+    }
+	.container .breadcrumb {
+		background-color: transparent!important;
+		padding-left: 15px;
+		font-weight: bold;
+		font-size: 14px;
+		margin-bottom: 0px;
+		border-bottom: 1px solid #E3E3E3;
+	}
+	.container .breadcrumb>li+li:before, .container .breadcrumb>li:first-child {
+		color: #A2A2A2;
+	}
+    .heading {
+        font-weight: bold;
+        display: table-row;
+        /*background-color: #1fa67a;*/
+        text-align: center;
+        line-height: 25px;
+        font-size: 14px;
+        /*font-family: georgia;*/
+        color: black;
+        border-bottom: 1px solid rgb(58, 109, 58);
+    }
+        .heading a {
+            color: inherit;
+        }
+
+    .table-row {
+        display: table-row;
+        border-bottom: 1px solid rgb(240, 240, 240);
+        line-height: 35px;
+    }
+	
+	.table-row.even {
+		background-color: #FFFFFF;
+	}
+    .table-group {
+        display: table-caption;
+        background-color: #c9dde1;
+        padding: 5px 5px 5px 10px;
+        height: 30px;
+        font-weight: bold;
+        margin-top: 2px;
+    }
+
+    .col {
+        display: table-cell;
+    }
+    .rowicon {
+        width:3%;
+    }
+    .rowdate {
+        width: 15%;
+    }
+    .rowmessage {
+        width:auto;
+    }
+    .grouping {
+        padding: 5px;
+        background-color: #1fa67a;
+        color: white;
+    }
+    .grouping a {
+        color: inherit;
+    }
+		
+	.container .table-group input[type=checkbox],.container .table-row input[type=checkbox]{ 
+        height:16px; 
+        width:16px; 
+	}
+	.container.footer {
+		border-top: 2px solid rgb(31, 166, 122);
+		line-height: 35px;
+		font-weight: bold;
+	}
+	.sub-menu li span {
+		margin-left: 10px;
+	}
+	.sub-menu li i {
+		color: rgb(0, 113, 75);
+		font-size: 8px;
+	}
+	.scrolltable {
+		max-height: 400px;
+		overflow-y: scroll;
+	}
+	button.on {
+		color: lightgreen!important;
+	}
+	.filter_container {
+		padding: 10px;
+		background-color: #EAEAEA;
+	}
+	.filter_container.button-holder {
+		height: 100%;
+		margin-bottom: 0px;
+	}
+	.list-group-item {
+		background-color: #F8F8F8;
+	}
+	.badge {
+		min-width:30px;
+		background-color: #00714B;
+	}
+	.green .nav-tabs {
+		border-width: 2px!important;
+	}
+</style>
+<div class='ribbon'>
+	<ol class='breadcrumb'>
+		<li></li>
+		<li ng-click="setActiveTab('Home');"><span class='btn btn-ribbon' ng-class="{ active : active_tab == 'Home' }"><i class='fa fa-home'></i>Home</span></li>
+	</ol>
+    <div menu-links menu="mID"></div>
+</div>
+<div class='content clearfix'>
+	<div class="left-panel col-md-3">
+		
+		<div class="well well-light no-margin">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="profile">
+						<div>
+							<img ng-click="updateValues()" ng-src='Upload/{{employee.ImageFile_GUID}}' alt='{{Session.ProfileImage}}' style="width:100px" />
+						</div>
+						<div>
+							<h2 style='margin:0px!important'>
+								<small> {{employee.Code}}</small>
+								<br>
+								{{employee.Name1}}
+								<br>
+								<small ng-if="employee.Designation != '' "> {{employee.Designation}}, {{employee.Company}}</small>
+                                <small ng-if="employee.Designation == '' "> {{employee.Company}}</small>
+							</h2>
+							<ul class="list-unstyled">
+								<li>
+									<p class="text-muted">
+										<i class="fa fa-bank"></i>&nbsp;&nbsp;<span class="txt-color-darken">{{employee.Department}}</span>
+									</p>
+								</li>
+								<li>
+									<p class="text-muted">
+										<i class="fa fa-calendar"></i>&nbsp;&nbsp;<span class="txt-color-darken">{{employee.SchedToday}}
+									</p>
+								</li>
+                                <li>
+                                    <p class="text-muted">
+                                        <i class="fa fa-user"></i>&nbsp;&nbsp;<span class="txt-color-darken"><a ui-sref='4065({ ID_4065:Session.$$ID_Employee})'>View Profile</a></span>
+									</p>
+                                </li>
+							</ul>
+
+						</div>
+					
+					</div>
+				</div>
+			</div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div title='Announcements' ng-if='gridData[4029].length > 0'>
+						<div class="row" ng-repeat="data in gridData[4029]">
+							<div class="col-xs-2 col-sm-2">
+								<time class="icon">
+									<strong>{{data.DateToShow | date:'MMM'}}</strong>
+									<span>{{data.DateToShow | date:'dd'}}</span>
+								</time>
+							</div>
+							<div class="col-xs-10 col-sm-10">
+								<h6 class="no-margin"><a>{{data.Name}}</a></h6>
+
+								<p>{{data.Comment}}</p>
+							</div>
+							<div class="col-sm-12">
+								<hr>
+							</div>
+						</div>
+							
+						<div class="col-sm-12">
+							<br>
+						</div>
+					</div>
+                </div>
+            </div>
+			<div class="row">
+				<div class="col-sm-12">
+					<div ng-if="active_tab == 'Home' && (menuApprovals.length > 0 || menuFiling.length > 0)" bs-tabs class="nav-tabs col-sm-12">
+                        
+						<div bs-pane title='My Applications' ng-if='menuFiling.length > 0'>
+							<ul class="list-group sidebar-nav-v1 sub-menu" id="Ul1">						   
+								<li ng-repeat="mf in menuFiling" class="list-group-item">
+									<a ui-sref="{{mf.ID_WebMenuFiling}}"><i class="fa fa-hand-o-right"></i><span>{{mf.Name}}</span><span class="badge pull-right">{{mf.Cnt}}</span></a>
+								</li> 
+							</ul>
+						</div>
+						<div bs-pane title='My Approvals' ng-if='menuApprovals.length > 0'>
+							<ul class="list-group sidebar-nav-v1 sub-menu" id="Ul2">						   
+								<li ng-repeat="ma in menuApprovals" class="list-group-item">
+									<a ui-sref="{{ma.ID_WebMenuApproval}}"><i class="fa fa-hand-o-right"></i><span>{{ma.Name}}</span><span class="badge pull-right">{{ma.Approvals}}</span></a>
+								</li>
+							</ul>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<!-- end row -->
+            <br />
+            <div class="row">
+                <div class="col-sm-12">
+                    <div title='Leave Credits' ng-if='gridData[4033].length > 0'>
+						<div class="row">
+							<table>
+                                <thead>
+                                    <tr>
+                                        <td>Leave Item</td>
+                                        <td>Alloted</td>
+                                        <td>Used</td>
+                                        <td>Balance</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="data in gridData[4033]">
+                                        <td>{{data.LeaveItem}}</td>
+                                        <td>{{data.Alloted}}</td>
+                                        <td>{{data.Used}}</td>
+                                        <td>{{data.Balance}}</td>
+                                    </tr>
+                                </tbody>
+							</table>
+						</div>
+					</div>
+                </div>
+            </div>
+		</div>
+	</div>
+	
+	<div class="col-md-9">
+		<div class="well well-light no-margin no-padding">
+			<div ng-if="active_tab == 'Home'" >
+				<div class="maincontainer clearfix">
+					<div class="col-md-12">
+						<h2 class="text-center">{{ calendarControl.getTitle() }}</h2>
+						<div class="row">
+							<div class="col-md-12 text-center">
+								<div class="btn-group">
+									<button class="btn btn-primary" ng-click="prev()">Previous</button>
+									<button class="btn btn-default" ng-click="setCalendarToToday()">Today</button>
+									<button class="btn btn-primary" ng-click="next()">Next</button>
+								</div>
+							</div>
+							<br class="visible-xs visible-sm">
+						</div>
+
+						<br>
+						<ng-calendar
+							calendar-events="events"
+							calendar-view="calendarView"
+							calendar-current-day="calendarDay"
+							calendar-control="calendarControl"
+							calendar-event-click="eventClicked($event)"
+							calendar-edit-event-html="'<i class=\'glyphicon glyphicon-pencil\'></i>'"
+							calendar-delete-event-html="'<i class=\'glyphicon glyphicon-remove\'></i>'"
+							calendar-edit-event-click="eventEdited($event)"
+							calendar-delete-event-click="eventDeleted($event)"
+							calendar-auto-open="false"
+							calendar-cell-template="'Dialogs/calendarCell.html'"
+							></ng-calendar>
+					</div>
+				</div>
+			</div>
+        </div>
+	</div>
+	
+</div>

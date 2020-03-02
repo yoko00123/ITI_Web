@@ -1,0 +1,139 @@
+<div style="font-family:Arial;" ng-init="Init()">
+    <div class='ribbon'>
+        <span class='ribbon-button-alignment'><i class='DirectReport fa  fa-area-chart'></i></span>
+        <ol class='breadcrumb'>
+            <li>My Direct Reports</li>
+        </ol>
+    </div>
+    <div class='content'>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-3">
+                    <div class="left-panel-dr">
+                        <p class="left-header">Select Employee <i class="fa fa-user"></i></p>
+                        <div class="emp-list-container">
+                            <div class="search-container">
+                                <i class="fa fa-search"></i>
+                                <input type="text" placeholder="Search Employee..." ng-model="ESearch" class="ng-pristine ng-untouched ng-valid ng-empty">
+                            </div>
+                            <ul>
+                                <li ng-repeat="e in EmployeeList | filter: SearchEmployee(ESearch) | orderBy: 'Name'" ng-click="SelectEmployee(e)" class="ng-scope" style="">
+                                    <img image-exist ng-src='Upload/{{e.ProfilePicture}}' alt='avatar.png' class="dr-employee-photo">
+                                    <div style="display:grid;padding-left:10px;">
+                                        <p class="emp-name ng-binding" style="font-weight:bold;">{{e.Name}}</p>
+                                        <p class="emp-position ng-binding">{{e.Department}}</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div ng-form name='mainform' class="col-md-9 Employee-Data">
+                    <div ng-if="Employee.ID_Employee > 0">
+                        <div class='button-holder' style="position: relative;">
+                            <p class="dr-name">{{Employee.Name}}</p>
+                            <ol class='breadcrumb'>
+                                <li><a type='button' class='btn btn-primary' href="#/Official-Business-Application/0?m=8084&s={{rID}}&e={{Employee.ID_Employee}}" style="background-color:#34495e;"><i class='fa fa-users'></i> Official Business</a></li>
+                                <li><a type='button' class='btn btn-primary' href="#/Missed-Log-Application/0?m=8084&s={{rID}}&e={{Employee.ID_Employee}}" style="background-color:#2980b9;"><i class='fa fa-clock-o'></i> Missed Log</a></li>
+                                <li><a type='button' class='btn btn-primary' href="#/Leave/0?m=8084&s={{rID}}&e={{Employee.ID_Employee}}" style="background-color:#27ae60;"><i class='fa fa-calendar'></i> Leave</a></li>
+                                <li><a type='button' class='btn btn-primary' href="#/Overtime-Application/0?m=8084&s={{rID}}&e={{Employee.ID_Employee}}" style="background-color:#f39c12;"><i class='fa fa-clock-o'></i> Overtime</a></li>
+                                <li><a type='button' class='btn btn-primary' href="#/Change-of-Schedule-Application/0?m=8084&s={{rID}}&e={{Employee.ID_Employee}}" style="background-color:#95a5a6;"><i class='fa fa-calendar'></i> Change of Schedule</a></li>
+                                <li><a type='button' class='btn btn-primary' href="#/Offset-Application/0?m=8084&s={{rID}}&e={{Employee.ID_Employee}}" style="background-color:#b10a0a;"><i class='fa fa-clock-o'></i> Offset</a></li>
+                            </ol>
+                        </div>
+                        <div class='clear'></div>
+                        <div class='form_template form-horizontal'>
+                            <fieldset>
+                                <div class='col-sm-12'>
+                                    <div class="col-sm-1">
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="dr-EmployeeImage">
+                                            <img image-exist ng-src='Upload/{{Employee.ProfilePicture}}' class="dr-img" style="border-radius:inherit!important;" />
+                                        </div>
+                                        <div class="profile ng-scope lc-container" title="Leave Credits">
+                                            <div class="row">
+                                                <div style="width:99%;padding:10px;font-size:16px;border-bottom:1px solid #ddd;">Leave Credits</div>
+                                                <table style="width:99%;" align="center" class="table table-hover">
+                                                    <thead class="LeaveCreditsTH" style="background-color: #2c3e50;">
+                                                        <tr>
+                                                            <td>Leave Item</td>
+                                                            <td>Alloted</td>
+                                                            <td>Used</td>
+                                                            <td>Balance</td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody> 
+                                                        <tr ng-repeat="lc in EmployeeLeaveCredit" class="ng-scope">
+                                                            <td class="ng-binding" style="text-align: center;">{{lc.Code}}</td>
+                                                            <td class="ng-binding" style="text-align: center;">{{lc.Alloted}}</td>
+                                                            <td class="ng-binding" style="text-align: center;">{{lc.Used}}</td>
+                                                            <td class="ng-binding" style="text-align: center;">{{lc.Balance}}</td>
+                                                        </tr> 
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-8" style="padding-left: 100px!important;padding-top: 20px;">
+                                        <div class='form-group'>
+                                            <label class='control-label2  col-md-3 bold'>Code</label>
+                                            <div class='col-md-9'>
+                                                <span class='control-label' ng-bind-html='Employee.EmployeeCode | trustedHTML'></span>
+                                            </div>
+                                        </div>
+                                        <div class='form-group'>
+                                            <label class='control-label2  col-md-3 bold'>Company</label>
+                                            <div class='col-md-9'>
+                                                <span class='control-label' ng-bind-html='Employee.Company | trustedHTML'></span>
+                                            </div>
+                                        </div>
+                                        <div class='form-group'>
+                                            <label class='control-label2  col-md-3 bold'>Department</label>
+                                            <div class='col-md-9'>
+                                                <span class='control-label' ng-bind-html='Employee.Department | trustedHTML'></span>
+                                            </div>
+                                        </div>
+                                        <div class='form-group'>
+                                            <label class='control-label2  col-md-3 bold'>Position</label>
+                                            <div class='col-md-9'>
+                                                <span class='control-label' ng-bind-html='Employee.Designation | trustedHTML'></span>
+                                            </div>
+                                        </div>
+                                        <div class='form-group'>
+                                            <label class='control-label2  col-md-3 bold'>Status</label>
+                                            <div class='col-md-9'>
+                                                <span class='control-label' ng-bind-html='Employee.EmployeeStatus | trustedHTML'></span>
+                                            </div>
+                                        </div>
+                                        <div class='form-group'>
+                                            <label class='control-label2  col-md-3 bold'>Access No</label>
+                                            <div class='col-md-9'>
+                                                <span class='control-label' ng-bind-html='Employee.AccessNo | trustedHTML'></span>
+                                            </div>
+                                        </div>
+										<div class='form-group'>
+                                            <label class='control-label2  col-md-3 bold'>Email Address</label>
+                                            <div class='col-md-9'>
+                                                <span class='control-label' ng-bind-html='Employee.EmailAddress | trustedHTML'></span>
+                                            </div>
+                                        </div>
+                                        <div class='form-group'>
+                                            <label class='control-label2  col-md-3 bold'>Start Date</label>
+                                            <div class='col-md-9'>
+                                                <label class="control-label">{{Employee.StartDate | date : 'MM/dd/yyyy'}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div ng-if="Employee.ID == null" style="text-align:center;">
+                        <i class="No-Employee">Please Select Employee</i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

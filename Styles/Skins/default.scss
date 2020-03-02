@@ -1,0 +1,219 @@
+.#{$Name} .btn.btn-ribbon {
+	background-color: $mainColor;
+}
+
+.#{$Name} .form_template {
+    padding: 10px;
+}
+
+.#{$Name} .button-holder {
+    border-bottom: 2px solid $borderBottomColor;
+    background-color: rgb(243, 243, 243);
+    margin-bottom:5px
+}
+
+.#{$Name} .navbar-button-holder {
+    border-bottom: 2px solid $borderBottomColor;
+}
+
+
+.#{$Name} .button-bottom {
+    border-bottom: none;
+    border-top: 2px solid $borderBottomColor;
+}
+
+.#{$Name} .btn-primary.active,
+.#{$Name} .btn-primary:active,
+.#{$Name} .btn-primary:focus,
+.#{$Name} .btn-primary:hover,
+.#{$Name} .open > .dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: $mainColor;
+    border-color: $borderBottomColor;
+}
+
+.#{$Name} .btn-primary {
+    color: $buttonFontColor;
+    background-color: $mainColor;
+    border-color: $mainColor;
+}
+
+.#{$Name} aside {
+    display: block;
+    overflow: hidden;
+    background: $mainColor;
+    min-height: 100%;
+}
+
+.dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover{
+	color: $menuFontColor!important;
+    background-color: $borderBottomColor;
+}
+
+ul.dropdown-menu li a {
+	color:black!important;
+}
+.#{$Name} nav ul ul,
+.#{$Name} nav ul ul ul {
+    border-bottom: 2px solid $borderBottomColor;
+}
+
+.#{$Name} .nav-tabs > li.active > a {
+	-webkit-box-shadow : none;
+	-moz-box-shadow: none;
+	-ms-box-shadow: none;
+	box-shadow: none;
+	font-weight:normal!important;
+}
+
+.#{$Name} .tabs-left > ul > li > a {
+    background-color: #fff;
+}
+
+.#{$Name} logo img {
+    width: 160px !important;
+    height: 40px !important;
+}
+
+/*GRID*/
+.#{$Name} .ngHeaderContainer {
+    background-color: #fff;
+    color: #1F1F1F;
+}
+
+.#{$Name} .main-container .m-grid-row:nth-child(odd),.#{$Name} .m-grid-left-pinned-container .m-grid-row:nth-child(even)  {
+    background-color: $tableRowEvenColor;
+}
+
+.#{$Name} .ngAggregate { 
+    background-color: $tableAggregateColor;
+}
+
+.#{$Name} .fa-edit {
+    color: $mainColor;
+}
+
+.#{$Name} .smart-form .toggle i:before {
+    background-color: $mainColor;
+}
+
+.#{$Name} .smart-form .checkbox input:checked+i,.#{$Name} .smart-form .radio input:checked+i,.#{$Name} .smart-form .toggle input:checked+i {
+    border-color: $mainColor;
+}
+
+.#{$Name} .nav-tabs{ border-bottom: solid 3px $mainColor!important; }
+.#{$Name} .nav-tabs > li.active > a,.#{$Name} .nav-tabs > li.active > a:focus,.#{$Name} .nav-tabs > li.active > a:hover { 
+    color: #fff;
+    background-color: $mainColor;
+}
+
+.redactor-toolbar {
+	background: $mainColor!important;
+}	
+	
+.redactor-toolbar li a {
+	color: #fff!important;
+}
+ 
+.redactor-toolbar li a:hover {
+	background: #fff!important;
+	color: #000!important;
+}
+	 
+.redactor-toolbar li a:active,
+.redactor-toolbar li a.redactor-act {
+	background: $mainColor !important;
+	color: #aaa!important;
+}
+
+.has-error .redactor-box { 
+    border: 1px solid #b94a48!important;
+}
+
+.#{$Name} .home {
+    background-color: $mainColor;
+}
+
+.#{$Name} .sidebar-nav-v1 a:hover{
+	color: $mainColor;
+	text-decoration: none;
+}
+
+.#{$Name} .btn-group-action .btn {  background-color: $mainColor;color: #fff; }
+
+.#{$Name} #loading-bar .bar { background: $mainColor!important; }
+
+.menu-on-top.#{$Name} nav ul ul li a:hover, .menu-on-top.#{$Name} nav ul ul li:hover > a, .menu-on-top.#{$Name} nav ul ul ul li a:hover { 
+    color: #fff;
+    background-color: $borderBottomColor;
+}
+
+.#{$Name} .LeaveCreditsTH { background-color: $mainColor;color: $menuFontColor; }
+.#{$Name} .LeaveCreditsTH > tr > td { color: $menuFontColor; }
+.#{$Name} .badge { min-width:30px;background-color: $mainColor;color: $menuFontColor; }
+.#{$Name} .nav-tabs > li > a:hover { background-color: $borderBottomColor; color: $menuFontColor; }
+
+body.#{$Name}{ font-family: $FontFamily!important;}
+
+.#{$Name} .dialog-header-confirm { background-color: $mainColor; }
+
+button.kc_fab_main_btn{
+	background:$mainColor!important;
+}
+.sub_fab_btns_wrapper .sub_fab_btn{
+	background:$mainColor!important;
+}
+
+.sub_fab_btns_wrapper .sub_fab_btn:hover{
+	background:$borderBottomColor!important;
+}
+
+.menu__item a:focus,
+.menu__item a:hover {
+    text-decoration:none !important;
+    background-color: $borderBottomColor !important;
+    color: $menuFontColor !important;
+}
+
+.menu__link:hover,
+.menu__link[data-submenu]:hover::after {
+	background-color: $borderBottomColor !important;
+    color: $menuFontColor !important;
+}
+
+.menu{
+	background: $mainColor !important;
+}
+
+.action--close{
+	color: $menuFontColor !important;
+}
+
+.menu__breadcrumbs a:not(:last-child):hover::after {
+	color: $menuFontColor !important;
+}
+
+.menu__breadcrumbs a:not(:last-child)::after {
+	color: $borderBottomColor !important;
+}
+
+.menu__breadcrumbs a:hover {
+	color: $borderBottomColor !important;
+}
+
+.menu__breadcrumbs a {
+	color: $menuFontColor !important;
+}
+
+.btnOpen {
+    color: $menuFontColor !important;
+	background: $mainColor !important;
+}
+
+#menuSearch {
+    background: $mainColor !important;
+}
+
+#menuSearch input{
+	border-color: $borderBottomColor !important;
+}

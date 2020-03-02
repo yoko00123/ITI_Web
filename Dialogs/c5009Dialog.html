@@ -1,0 +1,37 @@
+<div class="modal-header">
+    <h4 class="modal-title">
+        <span class="fa fa-file"></span> {{Title}}
+    </h4>
+</div>
+<div class="modal-body clearfix" style="max-height: 1200px;">
+
+    <div class="form_template form-horizontal" ng-if="Data.IsFirstLog == 0">
+		<div class="form-group col-md-12">
+			<label class="control-label col-md-3 bold">Password</label>
+			<div class="col-md-9">
+				<input type="password" name="Password" placeholder="Password" class="form-control" ng-model="Data.Password" />
+			</div>
+		</div>
+    </div>
+    <div class="form_template form-horizontal">
+		<div class="form-group col-md-12">
+			<label class="control-label col-md-3 bold">New Password</label>
+			<div class="col-md-9">
+				<input type="password" name="NewPassword" placeholder="New Password" class="form-control" ng-model="Data.NewPassword" />
+			</div>
+		</div>
+	</div>
+	<div class="form_template form-horizontal">
+		<div class="form-group col-md-12">
+			<label class="control-label col-md-3 bold">Confirm Password</label>
+			<div class="col-md-9">
+				<input type="password" name="ConfirmPassword" placeholder="Confirm Password" class="form-control" ng-model="Data.ConfirmPassword" />
+			</div>
+		</div>
+    </div>
+</div>
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" ng-click="cancel()">Close</button>
+    <button type="button" class="btn btn-primary" ng-click="save()" ng-disabled="(nameDialog.$dirty && nameDialog.$invalid) || nameDialog.$pristine">Change Password</button>
+</div>

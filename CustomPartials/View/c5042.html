@@ -1,0 +1,78 @@
+﻿<div class='ribbon'>
+    <span class='ribbon-button-alignment'><span class='btn btn-ribbon module-ribbon' ng-click='goPrevious()'><i class='fa fa-arrow-circle-left'></i></span></span>
+    <ol class='breadcrumb'>
+        <li>Users</li>
+    </ol>
+</div>
+<div class='content'>
+    <div ng-form name='mainform'>
+        <div class='button-holder'>
+            <!--<ol class='breadcrumb'>
+                <li><button type='button' class='btn btn-primary' ng-form-new mid='5042' mtype='3'><i class='fa fa-file-o'></i>New</button></li>
+                <li><button type='button' class='btn btn-primary' ng-click='Refresh()'><i class='fa fa-refresh'></i>Refresh</button></li>
+                <li><button type='button' class='btn btn-primary' accesskey='s' ng-form-save confirm="Are you Sure you want to save?" btnid='5020'><i class='fa fa-save'></i>Save</button></li>
+                <li><button type='button' class='btn btn-primary' ng-click="ChangePassword()"><i class='fa fa-key'></i>Show/Change Password</button></li>
+            </ol>-->
+        </div>
+        <div class='clear'></div>
+        <div ng-model='tabs.activeTab' bs-tabs>
+            <div title='General' name='master_5032' ng-form bs-pane>
+                <div class='form_template form-horizontal'>
+                    <fieldset>
+                        <br />
+                        <div class='col-sm-6'>
+                            <div class='form-group' ng-class="{ 'has-error' : master_5032.ID.$invalid && mainform.$submitted }">
+                                <label style='border-right:1px dashed #ddd;' class='control-label2  col-md-2 bold'>ID</label>
+                                <div class='col-md-10'>
+                                    <span class="control-label">{{Master.ID}}</span>
+                                    <div class='note note-error' ng-show='master_5032.ID.$error.required && mainform.$submitted'>ID is required.</div>
+                                </div>
+                            </div>
+                            <div class='form-group' ng-class="{ 'has-error' : master_5032.LogInName.$invalid && mainform.$submitted }">
+                                <label style='border-right:1px dashed #ddd;' class='control-label  col-md-2 bold'>Log In Name<span class='required'>* </span></label>
+                                <div class='col-md-10'>
+                                    <input type=" text" name="LogInName" placeholder="Log In Name" required class=" form-control" ng-model=" Master.LogInName" />
+                                    <div class='note note-error' ng-show='master_5032.LogInName.$error.required && mainform.$submitted'>Log In Name is required.</div>
+                                </div>
+                            </div>
+                            <div class='form-group'>
+                                <label style='border-right:1px dashed #ddd;' class='control-label  col-md-2 bold'>Name</label>
+                                <div class='col-md-10'><input type=" text" name="Name" placeholder="Name" class=" form-control" ng-model=" Master.Name" /></div>
+                            </div>
+                            <div class='form-group'>
+                                <label style='border-right:1px dashed #ddd;' class='control-label  col-md-2 bold'>Password</label>
+                                <div class='col-md-10'><input type="Password" name="Password" placeholder="Password" class=" form-control" ng-model=" Master.Password" disabled/></div>
+                            </div>
+                            <div class='form-group' ng-class="{ 'has-error' : master_5032.IsActive.$invalid && mainform.$submitted }">
+                                <label style='border-right:1px dashed #ddd;' class='control-label  col-md-2 bold'>IsActive</label>
+                                <div class='col-md-10'>
+                                    <div class='smart-form noselect material-switch'><input id="IsActive_6176" type="checkbox" name="IsActive" class=\ 'form_checkbox\' ng-model='Master.IsActive' /><label for="IsActive_6176" class='label-primary'></label></div>
+                                    <div class='note note-error' ng-show='master_5032.IsActive.$error.required && mainform.$submitted'>IsActive is required.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='col-sm-6'>
+                            <div class='form-group' ng-class="{ 'has-error' : master_5032.ID_UserGroup.$invalid && mainform.$submitted }">
+                                <label style='border-right:1px dashed #ddd;' class='control-label col-md-2 bold'>User Group<span class='required'>* </span></label>
+                                <div class='col-md-10'>
+                                    <select name="ID_UserGroup" ng-options=" item.ID as item.Name for item in dropdown_source[6181]" required class="form-control" ng-model="Master.ID_UserGroup" ng-init="Master.ID_UserGroup" =d ropdown_source[6181][0]><option value="">- Select -</option></select>
+                                    <div class='note note-error' ng-show='master_5032.ID_UserGroup.$error.required && mainform.$submitted'>User Group is required.</div>
+                                </div>
+                            </div>
+                            <div class='form-group'>
+                                <label style='border-right:1px dashed #ddd;' class='control-label col-md-2 bold'>Employee</label>
+                                <div class='col-md-10'>
+                                    <div ng-class="{'input-group':true}"><input target-name='Master.Employee' target-display="''" target-value='Master.ID_Employee' target-source='lookup_source[6182]' target-addon="ID_Employee_r6182_c6182" type="text" cid=6182 placeholder="Employee" ng-form-lookup class="form-control" ng-model="Master.Employee" /><input type="hidden" name="ID_Employee" ng-model="Master.ID_Employee" /><span ID="ID_Employee_r6182_c6182" class='input-group-addon'><i class='fa fa-list'></i></span></div>
+                                </div>
+                            </div>
+                            <div class='form-group'>
+                                <label style='border-right:1px dashed #ddd;' class='control-label col-md-2 bold'>User Type</label>
+                                <div class='col-md-10'><select name="ID_UserType" ng-options=" item.ID as item.Name for item in dropdown_source[6183]" class="form-control" ng-model="Master.ID_UserType" ng-init="Master.ID_UserType" =d ropdown_source[6183][0]><option value="">- Select -</option></select></div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

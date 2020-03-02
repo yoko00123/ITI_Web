@@ -1,0 +1,75 @@
+<div class='content'>
+    <form novalidate name='mainform'>
+        <div class='clear'></div>
+        <div title='General' name='master_5003' ng-form>
+            <div class='form_template form-horizontal'>
+                <fieldset style="margin-top: 10px;">
+                    <legend>Account</legend>
+                    <div class='col-md-12'>
+                        <div class='form-group'>
+                            <label class='control-label2  col-md-5 bold'>ID:</label>
+                            <div class='col-md-7'><span class="control-label">{{Master.ID}}</span></div>
+                        </div>
+                        <div class='form-group'>
+                            <label class='control-label2  col-md-5 bold'>Username:</label>
+                            <div class='col-md-7'><span class='control-label' ng-bind-html='Master.LogInName | trustedHTML'></span></div>
+                        </div>
+                        <div class='form-group'>
+                            <label class='control-label2  col-md-5 bold'>Last Password Change Date:</label>
+                            <div class='col-md-7'><label style="padding-top:0px;" control-label">{{Master.LastPasswordChangeDate | date : 'MM/dd/yyyy'}}</label></div>
+                        </div>
+                        <div class='form-group'>
+                            <label class='control-label2  col-md-5 bold'>Email Address:</label>
+                            <div class='col-md-7'>
+                                <span class='control-label' ng-bind-html='Master.EmailAddress | trustedHTML'></span>
+                            </div>
+                        </div>
+                        <div class='form-group'>
+                            <label class='control-label2  col-md-5 bold'>Group:</label>
+                            <div class='col-md-7'><span class='control-label' ng-bind-html='Master.UserGroup | trustedHTML'></span></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="checkbox" name="fancy-checkbox-danger-custom-icons" id="fancy-checkbox-danger-custom-icons" autocomplete="off" ng-change="EnableEffects(Master.isEffectsEnable)" ng-model="Master.isEffectsEnable"/>
+                            <div class="btn-group">
+                                <label for="fancy-checkbox-danger-custom-icons" class="btn btn-success">
+                                    <span class="glyphicon glyphicon-ok"></span>
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                </label>
+                                <label for="fancy-checkbox-danger-custom-icons" class="btn btn-default active" style="background-color: #bdc3c7;">
+                                    Enable Effects
+                                </label>
+                            </div>
+                        </div>
+                </fieldset>
+            </div>
+        </div>
+    </form>
+</div>
+<style>
+    .form-group input[type="checkbox"] {
+        display: none;
+    }
+
+        .form-group input[type="checkbox"] + .btn-group > label span:first-child {
+            display: none;
+        }
+
+        .form-group input[type="checkbox"] + .btn-group > label span:last-child {
+            display: inline-block;
+        }
+
+        .form-group input[type="checkbox"]:checked + .btn-group > label span:first-child {
+            display: inline-block;
+            
+        }
+
+        .form-group input[type="checkbox"]:checked + .btn-group > label span:last-child {
+            display: none;
+        }
+        .form-group input[type="checkbox"]:checked + .btn-group > .btn {
+            background-color:#27ae60;
+        }
+        .form-group input[type="checkbox"]:not(:checked) + .btn-group > .btn {
+            background-color:#e74c3c;
+        }
+</style>
